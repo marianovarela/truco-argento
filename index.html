@@ -6,6 +6,10 @@
 		<link href='http://fonts.googleapis.com/css?family=Kavoon' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="css/base.css" />
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js" ></script>
+		<script type="text/javascript" src="js/bootstrap-dialog.min.js"></script>
+		<script type="text/javascript" src="js/wow.min.js"></script>
 	</head>
 	<body class="game">
 		<div class="game-wrapper">
@@ -42,21 +46,23 @@
 						<div class="label-cantos label-cantos--SN">Mi respuesta ...</div>
 						<input type="button" value="Quiero"    id="Quiero"   class="boton btn"/>
 						<input type="button" value="No Quiero" id="NoQuiero" class="boton btn" />
+						<input type="button" onClick="reiniciar()" value="Reiniciar" class="btn btn-warning">
+						
+			
 					</fieldset>
 				</div>
-				<h2 class="log-title">Gameplay</h2>
+				<h2 class="log-title">Acciones</h2>
 				<div id="log"></div>
 			</div>
 			<div class="game-main" style="position: relative;">
 				<div id="configuraciones" class="box box--collapsable">
 					<div class="box-title">
-						<img src="images/gear.png" alt="Acceso a las configuraciones" title="Acceso a las configuraciones" width="32" /> 
+						<img src="images/naipe.png" alt="Acceso a las configuraciones" title="Acceso a las configuraciones" width="32"/> 
 					</div>
 					<div class="box-content">
+						
 						<input type="checkbox" id="cbxAudio" checked="checked" />
 						<label for="cbxAudio">Sonido</label>
-						<input type="checkbox" id="cbxDebug" checked="" />
-						<label for="cbxDebug">Debug</label>
 						<div>
 							<div class="label">Jugar a:</div>
 							<input type="radio" value="15" id="rdb15" class="rbd-ptos-partida" checked="checked" name="pto" />
@@ -64,6 +70,10 @@
 							<input type="radio" value="30" id="rdb30" class="rbd-ptos-partida" name="pto" />
 							<label for="rdb10">30 pts.</label>
 						</div>
+						<input type="button" onClick="reiniciar()" value="Reiniciar" class="btn btn-warning">
+						<input type="button" onClick="salir()" value="Salir" class="btn btn-danger">
+						<input type="button" onClick="terminarPartida()" value="terminar" class="btn btn-danger">
+						
 					</div>
 				</div>
 				<div id="player-two" class="player">

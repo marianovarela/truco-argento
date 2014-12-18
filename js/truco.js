@@ -7,6 +7,76 @@
 	var limitePuntaje = 15;
 	var Debug = false;
 	
+	function setUp(){
+		_partidaActual = new Partida();
+		_partidaActual.iniciar('Jugador 1', 'Computadora');
+
+		//Events Bindings
+		var _inputsName = $('.human-name');
+		var _nAnterior = '';
+		var _nNuevo = '';
+		var _estabaEditando = false;
+		_inputsName.keydown(function(event) {
+			if (event.keyCode === 13) {
+				event.preventDefault();
+			}
+		});
+		_inputsName.keyup(function(event) {
+			if (event.keyCode !== 13) {
+				var name = $(this).html();
+				var _other = _inputsName.not(this);
+				if(!_estabaEditando) {
+					_nAnterior = _other.html();
+					_estabaEditando = true;
+				}
+				_other.html(name);
+				_nNuevo = _partidaActual.equipoPrimero.jugador.nombre = name;
+			} else {
+				event.preventDefault();
+			}
+		});
+		_inputsName.blur(function() {
+			_log.innerHTML = "<br />" + _nAnterior + " cambia su nombre a: " + _nNuevo + _log.innerHTML ;
+			_estabaEditando = false;
+		});
+
+		$('#cbxDebug').change(function () {
+			Debug = $(this).is(':checked');
+		}).attr('checked',false);
+		
+		var _cajasCollapsables = $('.box--collapsable');
+		if(_cajasCollapsables.length > 0) {
+			_cajasCollapsables.find('.box-content').addClass('box-content--hidden');
+			_cajasCollapsables.find('.box-title').addClass('box-title--hidden').click(function(){
+				var _title = $(this);
+				if(_title.hasClass('box-title--hidden')) {
+					_title.removeClass('box-title--hidden').children('img').addClass('title-rotate');
+					_title.parent().children('.box-content--hidden').removeClass('box-content--hidden');
+				} else {
+					_title.addClass('box-title--hidden').children('img').removeClass('title-rotate');
+					_title.parent().children('.box-content').addClass('box-content--hidden');
+				}
+			});
+		}
+	}
+	
+	function reiniciar(){
+		var _log = document.getElementById('log');
+		var _rondaActual = null;
+		var _partidaActual = null;
+		var audio = null;
+		var limitePuntaje = 15;
+		var Debug = false;
+		setUp();
+	}
+	
+	function salir(){
+		window.close();
+	}
+	
+	function terminarPartida() {
+		BootstrapDialog.alert('I want banana!');
+	}
 	
 	//Funciones Primitivas
 	function getRandomInt (min, max) {
@@ -1325,6 +1395,7 @@
 		}
 		if(!(this.equipoPrimero.puntos < limitePuntaje && this.equipoSegundo.puntos < limitePuntaje)) {
 		    _log.innerHTML = '<hr />' + '<br /> PUNTAJE FINAL : ' + this.equipoPrimero.jugador.nombre + ' ' + this.equipoPrimero.puntos + ' - '+ this.equipoSegundo.jugador.nombre + ' ' + this.equipoSegundo.puntos + _log.innerHTML ;
+			terminarPartida(); 	
 		}
 	}
 	
@@ -1368,61 +1439,11 @@
 		a.setAttribute("src","audio/vale-cuatro.wav");
 		a.load();
 		audio.fx['V'] = a;
-		//Comienza la acción
-		_partidaActual = new Partida();
-		_partidaActual.iniciar('Jugador 1', 'Computadora');
-
-		//Events Bindings
-		var _inputsName = $('.human-name');
-		var _nAnterior = '';
-		var _nNuevo = '';
-		var _estabaEditando = false;
-		_inputsName.keydown(function(event) {
-			if (event.keyCode === 13) {
-				event.preventDefault();
-			}
-		});
-		_inputsName.keyup(function(event) {
-			if (event.keyCode !== 13) {
-				var name = $(this).html();
-				var _other = _inputsName.not(this);
-				if(!_estabaEditando) {
-					_nAnterior = _other.html();
-					_estabaEditando = true;
-				}
-				_other.html(name);
-				_nNuevo = _partidaActual.equipoPrimero.jugador.nombre = name;
-			} else {
-				event.preventDefault();
-			}
-		});
-		_inputsName.blur(function() {
-			_log.innerHTML = "<br />" + _nAnterior + " cambia su nombre a: " + _nNuevo + _log.innerHTML ;
-			_estabaEditando = false;
-		});
-
-		$('#cbxDebug').change(function () {
-			Debug = $(this).is(':checked');
-		}).attr('checked',false);
 		
-		var _cajasCollapsables = $('.box--collapsable');
-		if(_cajasCollapsables.length > 0) {
-			_cajasCollapsables.find('.box-content').addClass('box-content--hidden');
-			_cajasCollapsables.find('.box-title').addClass('box-title--hidden').click(function(){
-				var _title = $(this);
-				if(_title.hasClass('box-title--hidden')) {
-					_title.removeClass('box-title--hidden').children('img').addClass('title-rotate');
-					_title.parent().children('.box-content--hidden').removeClass('box-content--hidden');
-				} else {
-					_title.addClass('box-title--hidden').children('img').removeClass('title-rotate');
-					_title.parent().children('.box-content').addClass('box-content--hidden');
-				}
-			});
-		}
+		//Comienza la acción
+		setUp();
 	});
 	
-	
-
 
 		
 //})(window);
