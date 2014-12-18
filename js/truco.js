@@ -6,7 +6,10 @@
 	var audio = null;
 	var limitePuntaje = 15;
 	var Debug = false;
+	var _ganador = null;
 	
+	
+		
 	function setUp(){
 		_partidaActual = new Partida();
 		_partidaActual.iniciar('Jugador 1', 'Computadora');
@@ -74,9 +77,19 @@
 		window.close();
 	}
 	
-	function terminarPartida() {
-		BootstrapDialog.alert('I want banana!');
-	}
+	function terminarPartida(equipoUno, equipoDos) {
+		determinarGanador(equipoUno, equipoDos);
+    }
+    
+    function determinarGanador(equipoUno, equipoDos){
+    	if(equipoUno.puntos > equipoDos.puntos){
+	    	console.log(equipoUno.jugador.nombre);
+	    	console.log(equipoUno.puntos);
+    	}else {
+    		console.log(equipoDos.jugador.nombre);
+	    	console.log(equipoDos.puntos);
+    	}
+    }
 	
 	//Funciones Primitivas
 	function getRandomInt (min, max) {
@@ -1395,7 +1408,7 @@
 		}
 		if(!(this.equipoPrimero.puntos < limitePuntaje && this.equipoSegundo.puntos < limitePuntaje)) {
 		    _log.innerHTML = '<hr />' + '<br /> PUNTAJE FINAL : ' + this.equipoPrimero.jugador.nombre + ' ' + this.equipoPrimero.puntos + ' - '+ this.equipoSegundo.jugador.nombre + ' ' + this.equipoSegundo.puntos + _log.innerHTML ;
-			terminarPartida(); 	
+			terminarPartida(this.equipoPrimero, this.equipoSegundo); 	
 		}
 	}
 	
