@@ -72,7 +72,7 @@
 						</div>
 						<input type="button" onClick="reiniciar()" value="Reiniciar" class="btn btn-warning">
 						<input type="button" onClick="salir()" value="Salir" class="btn btn-danger">
-						<input type="button" onClick="determinarGanador()" value="terminar" class="btn btn-danger">
+						<input type="button" onClick="terminarPartida()" value="terminar" class="btn btn-danger">
 						
 					</div>
 				</div>
@@ -83,7 +83,24 @@
 					</h3>
 					<ul class="player-cards" ></ul>	
 				</div>
- 
+        
+        <dialog id="dialog">
+          <div class="modal-header">
+            <button type="button" onclick="cerrarDialog()" class="close" data-dismiss="modal" aria-hidden="true">
+              &times;
+            </button>
+            <h4 id="mensaje" class="modal-title"></h4>
+          </div>
+          <!-- /modal-header -->
+          <div class="modal-body">
+            <p id="puntajes"></p>
+          </div>
+          <!-- /modal-body -->
+          <div class="modal-footer">
+            <input type="button" onClick="reiniciarDesdeDialog()" value="Reiniciar" class="btn btn-warning">
+          </div>
+        </dialog>
+        
 				<div class="game-deck" >
 					<div class="card card-1"></div>
 					<div class="card card-2"></div>

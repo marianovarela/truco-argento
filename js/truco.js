@@ -8,8 +8,10 @@
 	var Debug = false;
 	var _ganador = null;
 	
-	
-		
+	function myFunction() { 
+    	document.getElementById("myDialog").showModal(); 
+	} 
+
 	function setUp(){
 		_partidaActual = new Partida();
 		_partidaActual.iniciar('Jugador 1', 'Computadora');
@@ -73,12 +75,21 @@
 		setUp();
 	}
 	
+	function reiniciarDesdeDialog(){
+		reiniciar();
+		document.getElementById("dialog").close();
+	}
+	
 	function salir(){
 		window.close();
 	}
 	
+	function cerrarDialog(){
+		document.getElementById("dialog").close();
+	}
+	
 	function terminarPartida(equipoUno, equipoDos) {
-		determinarGanador(equipoUno, equipoDos);
+		document.getElementById("dialog").showModal(); 
     }
     
     function determinarGanador(equipoUno, equipoDos){
