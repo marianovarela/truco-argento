@@ -8,10 +8,6 @@
 	var Debug = false;
 	var _ganador = null;
 	
-	function myFunction() { 
-    	document.getElementById("myDialog").showModal(); 
-	} 
-
 	function setUp(){
 		_partidaActual = new Partida();
 		_partidaActual.iniciar('Jugador 1', 'Computadora');
@@ -101,7 +97,7 @@
 	    	console.log(equipoDos.puntos);
     	}
     }
-	
+    
 	//Funciones Primitivas
 	function getRandomInt (min, max) {
 		return Math.floor(Math.random() * (max - min + 1)) + min;
