@@ -7,14 +7,18 @@
 		<link rel="stylesheet" type="text/css" href="css/base.css" />
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 		<link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
+		<link rel="stylesheet" type="text/css" href="css/navigation.css" />
 		<script type="text/javascript" src="js/jquery.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js" ></script>
 		<script type="text/javascript" src="js/bootstrap-dialog.min.js"></script>
 		<script type="text/javascript" src="js/jquery-ui.js"></script>
+		<script type="text/javascript" src="js/jquery-1.11.2.min.map"></script>
+		<script type="text/javascript" src="js/navigation/extensible.js"></script>
+		<script type="text/javascript" src="js/navigation/control.js"></script>
 	</head>
-	<body class="game">
+	<body id="main" class="game">
 		<div class="game-wrapper">
-			<div class="game-panel">
+			<div id="main-left" class="game-panel">
 				<div class="game-header">
 					<h1>Truco argento</h1>
 				</div>
@@ -37,26 +41,32 @@
 						<legend>
 							Cantos
 						</legend>
-						<div class="label-cantos label-cantos--first">
-							Para la mentira ...
+						<div id="mentira">
+							<div class="label-cantos label-cantos--first">
+								Para la mentira ...
+							</div>
+							<input type="button" value="Envido"       id="Envido"         class="canto btn btn-primary"  data-envido='E' />
+							<input type="button" value="Real Envido"  id="RealEnvido"     class="canto btn btn-success"  data-envido='R'/>
+							<input type="button" value="Falta Envido" id="FaltaEnvido"    class="canto btn btn-inverse"  data-envido='F'/>
 						</div>
-						<input type="button" value="Envido"       id="Envido"         class="canto btn btn-primary"  data-envido='E' />
-						<input type="button" value="Real Envido"  id="RealEnvido"     class="canto btn btn-success"  data-envido='R'/>
-						<input type="button" value="Falta Envido" id="FaltaEnvido"    class="canto btn btn-inverse"  data-envido='F'/>
-						<div class="label-cantos">
-							Para el rabón ...
+						<div id="rabon">
+							<div class="label-cantos">
+								Para el rabón ...
+							</div>
+							<input type="button" value="Me voy al mazo"  id="IrAlMazo"   class="btn"/>
+							<input type="button" value="Truco"           id="Truco"   class="cantot btn btn-primary" data-truco='T' />
+							<input type="button" value="Quiero re Truco" id="reTruco" class="cantot btn btn-success" data-truco='RT' />
+							<input type="button" value="Quiero vale 4"   id="vale4"   class="cantot btn btn-inverse" data-truco='V' />
 						</div>
-						<input type="button" value="Me voy al mazo"    id="IrAlMazo"   class="btn"/>
-						<input type="button" value="Truco"           id="Truco"   class="cantot btn btn-primary" data-truco='T' />
-						<input type="button" value="Quiero re Truco" id="reTruco" class="cantot btn btn-success" data-truco='RT' />
-						<input type="button" value="Quiero vale 4"   id="vale4"   class="cantot btn btn-inverse" data-truco='V' />
-						<div class="label-cantos label-cantos--SN">
-							Mi respuesta ...
+						<div id="respuesta">
+							<div class="label-cantos label-cantos--SN">
+								Mi respuesta ...
+							</div>
+							<input type="button" value="Quiero"    id="Quiero"   class="boton btn"/>
+							<input type="button" value="No Quiero" id="NoQuiero" class="boton btn" />
+							<input type="button" onClick="reiniciar()" value="Reiniciar" class="btn btn-warning">
 						</div>
-						<input type="button" value="Quiero"    id="Quiero"   class="boton btn"/>
-						<input type="button" value="No Quiero" id="NoQuiero" class="boton btn" />
-						<input type="button" onClick="reiniciar()" value="Reiniciar" class="btn btn-warning">
-
+							
 					</fieldset>
 				</div>
 				<h2 class="log-title">Acciones</h2>
