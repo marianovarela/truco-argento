@@ -1392,7 +1392,7 @@
 	//------------------------------------------------------------------
 	
 	Partida.prototype.continuar = function () {
-		limitePuntaje = parseInt($('.rbd-ptos-partida:checked').val(), 10);
+	    limitePuntaje = 30;
 	    while (this.equipoPrimero.puntos < limitePuntaje && this.equipoSegundo.puntos < limitePuntaje) {
 			var _$tbl = $('#game-score');
 			_log.innerHTML =  "";
