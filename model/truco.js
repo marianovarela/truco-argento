@@ -85,17 +85,26 @@
 	}
 	
 	function terminarPartida(equipoUno, equipoDos) {
+		determinarGanador(equipoUno, equipoDos);
 		document.getElementById("dialog").showModal(); 
     }
     
     function determinarGanador(equipoUno, equipoDos){
-    	if(equipoUno.puntos > equipoDos.puntos){
-	    	console.log(equipoUno.jugador.nombre);
-	    	console.log(equipoUno.puntos);
-    	}else {
-    		console.log(equipoDos.jugador.nombre);
-	    	console.log(equipoDos.puntos);
-    	}
+    	setearGanador("Perdiste");
+    	// if(equipoUno.puntos > equipoDos.puntos){
+	    	// console.log(equipoUno.jugador.nombre);
+	    	// console.log(equipoUno.puntos);
+	    	// setearGanador("Ganaste");
+    	// }else {
+    		// console.log(equipoDos.jugador.nombre);
+	    	// console.log(equipoDos.puntos);
+    		// setearGanador("Perdiste");
+    	// }
+    }
+    
+    function setearGanador(resultadoParaMostrar){
+    	var resultado = document.getElementById("resultado");
+    	resultado.textContent = resultadoParaMostrar;
     }
     
 	//Funciones Primitivas
