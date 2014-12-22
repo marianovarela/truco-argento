@@ -10,7 +10,7 @@
 	
 	function setUp(){
 		_partidaActual = new Partida();
-		_partidaActual.iniciar('Jugador 1', 'Computadora');
+		_partidaActual.iniciar('Jugador', 'Computadora');
 
 		//Events Bindings
 		var _inputsName = $('.human-name');
@@ -84,27 +84,25 @@
 		document.getElementById("dialog").close();
 	}
 	
-	function terminarPartida(equipoUno, equipoDos) {
+	function terminarPartida(equipoUno, equipoDos, mensaje) {
 		determinarGanador(equipoUno, equipoDos);
+		setear("puntajes", mensaje);
 		document.getElementById("dialog").showModal(); 
     }
     
     function determinarGanador(equipoUno, equipoDos){
-    	setearGanador("Perdiste");
-    	// if(equipoUno.puntos > equipoDos.puntos){
-	    	// console.log(equipoUno.jugador.nombre);
-	    	// console.log(equipoUno.puntos);
-	    	// setearGanador("Ganaste");
-    	// }else {
-    		// console.log(equipoDos.jugador.nombre);
-	    	// console.log(equipoDos.puntos);
-    		// setearGanador("Perdiste");
-    	// }
+    	var resultado;
+    	if(equipoUno.puntos > equipoDos.puntos){
+	    	resultado = "Ganaste";
+    	}else {
+	    	resultado = "Perdiste";
+    	}
+		setear("resultado", resultado);
     }
     
-    function setearGanador(resultadoParaMostrar){
-    	var resultado = document.getElementById("resultado");
-    	resultado.textContent = resultadoParaMostrar;
+    function setear(elemento, mensaje){
+    	var elementHtml = document.getElementById(elemento);
+    	elementHtml.textContent = mensaje;
     }
     
 	//Funciones Primitivas
@@ -1366,7 +1364,7 @@
 		if(nombreJugadorUno !== null && nombreJugadorUno !== undefined && nombreJugadorUno !== '') {
 			jugador1.nombre = nombreJugadorUno;
 		} else {
-			jugador1.nombre = 'Jugador 1';
+			jugador1.nombre = 'Jugador';
 		}
 		this.equipoPrimero.jugador = jugador1;
 		var maquina = new IA();
@@ -1423,8 +1421,9 @@
 			
 		}
 		if(!(this.equipoPrimero.puntos < limitePuntaje && this.equipoSegundo.puntos < limitePuntaje)) {
-		    _log.innerHTML = '<hr />' + '<br /> PUNTAJE FINAL : ' + this.equipoPrimero.jugador.nombre + ' ' + this.equipoPrimero.puntos + ' - '+ this.equipoSegundo.jugador.nombre + ' ' + this.equipoSegundo.puntos + _log.innerHTML ;
-			terminarPartida(this.equipoPrimero, this.equipoSegundo); 	
+			var puntajeFinal = 'PUNTAJE FINAL : ' + this.equipoPrimero.jugador.nombre + ' ' + this.equipoPrimero.puntos + ' - '+ this.equipoSegundo.jugador.nombre + ' ' + this.equipoSegundo.puntos
+		    _log.innerHTML = '<hr />' + '<br />' + puntajeFinal  + _log.innerHTML ;
+			terminarPartida(this.equipoPrimero, this.equipoSegundo, puntajeFinal); 	
 		}
 	}
 	
