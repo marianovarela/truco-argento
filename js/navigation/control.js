@@ -98,13 +98,14 @@ component.root
         .add(extensible.create_leaf('vale4').set_priority(3))
       )
       .add(extensible.create_horizontal('respuesta').set_priority(2)
-        .add(extensible.create_leaf('Envido').set_priority(0))
-        .add(extensible.create_leaf('RealEnvido').set_priority(1))
-        .add(extensible.create_leaf('FaltaEnvido').set_priority(2))
+        .add(extensible.create_leaf('Quiero').set_priority(0))
+        .add(extensible.create_leaf('NoQuiero').set_priority(1))
+        .add(extensible.create_leaf('Reiniciar-left').set_priority(2))
       )
       
     )
     .add(extensible.create_horizontal('main-center').set_priority(1))
+    .add(extensible.create_horizontal('main-right').set_priority(1))
 );
 
 

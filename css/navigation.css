@@ -1,4 +1,5 @@
-#Envido.hover, #RealEnvido.hover, #FaltaEnvido.hover, #IrAlMazo.hover, #Truco.hover, #rabon.hover, #rabon.hover{
+#mentira.hover, #Envido.hover, #RealEnvido.hover, #FaltaEnvido.hover, #IrAlMazo.hover, #Truco.hover, #rabon.hover,
+#respuesta.hover, #Quiero.hover, #NoQuiero.hover, #Reiniciar-left.hover, #Reiniciar-right.hover{
 	border: 3px solid green;
 }
 

@@ -12,7 +12,7 @@
 		<script type="text/javascript" src="js/bootstrap.min.js" ></script>
 		<script type="text/javascript" src="js/bootstrap-dialog.min.js"></script>
 		<script type="text/javascript" src="js/jquery-ui.js"></script>
-		<script type="text/javascript" src="js/jquery-1.11.2.min.map"></script>
+		<script type="text/plain" src="js/jquery-1.11.2.min.map"></script>
 		<script type="text/javascript" src="js/navigation/extensible.js"></script>
 		<script type="text/javascript" src="js/navigation/control.js"></script>
 	</head>
@@ -64,7 +64,7 @@
 							</div>
 							<input type="button" value="Quiero"    id="Quiero"   class="boton btn"/>
 							<input type="button" value="No Quiero" id="NoQuiero" class="boton btn" />
-							<input type="button" onClick="reiniciar()" value="Reiniciar" class="btn btn-warning">
+							<input type="button" onClick="reiniciar()" value="Reiniciar" id="Reiniciar-left" class="btn btn-warning">
 						</div>
 							
 					</fieldset>
@@ -73,15 +73,17 @@
 				<div id="log"></div>
 			</div>
 			<div class="game-main" style="position: relative;">
-				<div id="configuraciones" class="box box--collapsable">
-					<div class="box-title">
-						<img src="images/naipe.png" alt="Acceso a las configuraciones" title="Acceso a las configuraciones" width="32"/>
-					</div>
-					<div class="box-content">
-
-						<input type="button" onClick="reiniciar()" value="Reiniciar" class="btn btn-warning">
-						<input type="button" onClick="salir()" value="Salir" class="btn btn-danger">
-
+				<div class="main-rigth">
+					<div id="configuraciones" class="box box--collapsable">
+						<div class="box-title">
+							<img src="images/naipe.png" alt="Acceso a las configuraciones" title="Acceso a las configuraciones" width="32"/>
+						</div>
+						<div class="box-content">
+	
+							<input type="button" onClick="reiniciar()" value="Reiniciar" class="btn btn-warning">
+							<input type="button" onClick="salir()" value="Salir" class="btn btn-danger">
+	
+						</div>
 					</div>
 				</div>
 				<div id="player-two" class="player">
@@ -104,7 +106,7 @@
 					</div>
 					<!-- /modal-body -->
 					<div class="modal-footer">
-						<input type="button" onClick="reiniciarDesdeDialog()" value="Reiniciar" class="btn btn-warning">
+						<input type="button" onClick="reiniciarDesdeDialog()" value="Reiniciar" id="Reiniciar-right" class="btn btn-warning">
 						<input type="button" onClick="salir()" value="Salir del juego" class="btn btn-danger">
 					</div>
 				</dialog>
@@ -120,7 +122,7 @@
 				<div id="player-one" class="player">
 					<ul class="player-cards"></ul>
 					<div class="player-envite-points"></div>
-					<h3 class="player-content"><div class="player-voice"></div><span contenteditable="true" class="player-name human-name"></span></h3>
+					<h3 class="player-content"><div class="player-voice"></div><span class="player-name human-name"></span></h3>
 				</div>
 			</div>
 			<div class="game-footer"></div>
