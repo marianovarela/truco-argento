@@ -105,10 +105,6 @@
     	elementHtml.textContent = mensaje;
     }
     
-    function deshabilitar(elementId){
-    	document.getElementById("elementId").disabled = true;	
-    }
-    
 	//Funciones Primitivas
 	function getRandomInt (min, max) {
 		return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -251,7 +247,7 @@
 					html += '<li class="naipe naipe-boca-abajo"></li>';
 				} else {
 					var estilo = ' style="background-position: ' + this.cartasEnMano[i].getCSS() + ';"';
-				    html += '<li><a href="#" class="naipe naipe-humano" id="naipe-' + i + '" data-naipe-index="' + i +'" ' + estilo +'></a></li>';
+				    html += '<li><a href="#" id="naipe-' + i + '" class="naipe naipe-humano" data-naipe-index="' + i +'" ' + estilo +'></a></li>';
 				}
 			}
 		}
@@ -314,7 +310,6 @@
 	Jugador.prototype.jugarCarta =  function (indice) {
 		if(indice !== null && indice !== undefined && this.cartasEnMano.length > indice) {
 			var carta = this.cartasEnMano[indice];
-			deshabilitar("naipe-" + indice);
 			_log.innerHTML = '<b>' + this.nombre + ' juega un :</b> ' + carta.getNombre() + '<br /> ' + _log.innerHTML ;
 			this.cartasJugadas.push(carta);
 			this.cartasEnMano.splice(indice,1);

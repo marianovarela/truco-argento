@@ -5,8 +5,8 @@ component.root = extensible.create_basic('root').initialize();
 
 component.root.handle_inner = function(key) {
   console.log('handling ' + key);
-  //var audio = new Audio('/audio/fail.mp3');
-  //audio.play()
+  var audio = new Audio('audio/fail.mp3');
+  audio.play();
 };
 
 component.root.set_active_down_to_up = function(child_component, changed_child) {
@@ -108,12 +108,9 @@ component.root
     	.add(extensible.create_leaf('naipe-0').set_priority(0))
         .add(extensible.create_leaf('naipe-1').set_priority(1))
         .add(extensible.create_leaf('naipe-2').set_priority(2))
-    	)
-    .add(extensible.create_vertical('main-right').set_priority(1)
-    	.add(extensible.create_leaf('opciones').set_priority(0)
-	    	// .add(extensible.create_leaf('Reiniciar-right').set_priority(0))
-	        // .add(extensible.create_leaf('Salir').set_priority(1))
-    	)
+    )
+    .add(extensible.create_horizontal('main-right').set_priority(2)
+    	.add(extensible.create_leaf('opciones').set_priority(2))
     )
 );
 
