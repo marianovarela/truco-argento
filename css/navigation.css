@@ -1,7 +1,10 @@
-#mentira.hover, #Envido.hover, #RealEnvido.hover, #FaltaEnvido.hover, #IrAlMazo.hover, #Truco.hover, #rabon.hover,
-#respuesta.hover, #Quiero.hover, #NoQuiero.hover, #Reiniciar-left.hover,  
-#main-center.hover, #naipe-0.hover, #naipe-1.hover, #naipe-2.hover,
-#main-right.hover, #opciones.hover, #menu.hover, #Reiniciar-right.hover, #Salir.hover{
+#Envido.hover, #RealEnvido.hover, #FaltaEnvido.hover, #IrAlMazo.hover, #Truco.hover,
+#Quiero.hover, #NoQuiero.hover, #Reiniciar-left.hover,  
+#opciones.hover, #Reiniciar-right.hover, #Salir.hover{
 	border: 3px solid green;
 }
 
+#naipe-0.hover, #naipe-1.hover, #naipe-2.hover{
+	position: absolute;
+	bottom: 90px;
+}
