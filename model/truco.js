@@ -9,7 +9,6 @@
 	var _ganador = null;
 	
 	function setUp(){
-		iniciarBotones();
 		_partidaActual = new Partida();
 		_partidaActual.iniciar('Jugador', 'Computadora');
 
@@ -109,17 +108,21 @@
     function deshabilitar(elementId){
 	    $("#" + elementId).attr("disabled", "disabled");
     }
-    
+
     function habilitar(elementId){
     	$("#" + elementId).removeAttr("disabled");
     }
     
     function iniciarBotones(){
+    	habilitar("Truco");
+    	habilitar("Envido");
+    	habilitar("RealEnvido");
+    	habilitar("FaltaEnvido");
     	deshabilitar("reTruco");
     	deshabilitar("vale4");
     	deshabilitar("Quiero");
     	deshabilitar("NoQuiero");
-    }
+    }	
     
 	//Funciones Primitivas
 	function getRandomInt (min, max) {
@@ -641,8 +644,11 @@
 					// Habilitamos los botones
 					this.enEspera = true;
 					_rondaActual = this;
-					deshabilitar("Quiero");
-					deshabilitar("NoQuiero");
+					$("#Quiero").hide();
+					$("#NoQuiero").hide();
+					$('.label-cantos--SN').hide();
+					$(".canto").hide();
+					$(".cantot").hide();
 					//  Envido del Humano
 					if (this.puedeEnvido === true){
 						$(".canto").show();
@@ -656,6 +662,7 @@
 							_rondaActual.enEspera = false;
 							$(this).unbind('click');
                             //deshabilito los cantos correspondientes
+                            $(".boton").hide();
 							_rondaActual.continuarRonda();
 						
 						});
@@ -665,18 +672,15 @@
                         var ultimo = this.truco.getLast();
                         switch (ultimo) {
 							case 'T':
-								habilitar("reTruco");
-								// $('#reTruco').show();
+								$('#reTruco').show();
 								break;
 							case 'RT':
-								habilitar("vale4");
-								// $('#vale4').show();
+								$('#vale4').show();
 								break;
 							case 'V':
 								break;
 							default:
-								habilitar("Truco");	
-								// $('#Truco').show();
+								$('#Truco').show();
 								break;
 						}
 						$(".cantot").unbind('click').click(function(event){
@@ -686,6 +690,7 @@
 							_rondaActual.equipoTruco = _rondaActual.equipoEnEspera(_rondaActual.equipoEnTurno);
 							_rondaActual.logCantar(_rondaActual.equipoEnTurno.jugador, c);
 							_rondaActual.enEspera = false;
+							$(".boton").hide();
 							$(this).unbind('click');
 							_rondaActual.continuarRonda();
 						});
@@ -809,7 +814,7 @@
 	
     Ronda.prototype.decidirTruco = function(){
         if (this.equipoTruco.jugador.esHumano) {
-            var _btnsCantoTruco = $('.cantot')
+            var _btnsCantoTruco = $('.cantot').hide();
             $('.boton').show();
 			$('.label-cantos--SN').show();
             var ultimoCanto = this.truco.getLast();
@@ -882,19 +887,14 @@
 			var _canto      = $('.canto').hide();
 			var _quiero     = $("#Quiero").show();
 			var _noQuiero   = $("#NoQuiero").show();
-			habilitar("Quiero");
-			habilitar("NoQuiero");	
 			$('.label-cantos--SN').show();
 			switch (ultimoCanto) {
 				case 'E':
-					habilitar("Envido");
-					// $('#Envido').show();
+					$('#Envido').show();
 				case 'EE':
-					habilitar("RealEnvido");
-					// $('#RealEnvido').show();
+					$('#RealEnvido').show();
 				case 'R':
-					habilitar("FaltaEnvido");
-					// $('#FaltaEnvido').show();
+					$('#FaltaEnvido').show();
 			}
 			this.enEspera = true;
 			_rondaActual = this;
@@ -908,9 +908,6 @@
 				_rondaActual.equipoEnvido = _rondaActual.equipoEnEspera(_rondaActual.equipoEnvido);
 				_rondaActual.enEspera = false;
 				$(this).unbind('click');
-				 deshabilitar("Envido");
-				 deshabilitar("RealEnvido");
-				 deshabilitar("FaltaEnvido");
 				_rondaActual.continuarRonda();
 			} );
 			
@@ -920,9 +917,6 @@
 				_rondaActual.logCantar(_rondaActual.equipoEnvido.jugador,"S");
 				_rondaActual.jugarEnvido(true);
 				_rondaActual.enEspera = false;
-				 deshabilitar("Envido");
-				 deshabilitar("RealEnvido");
-				 deshabilitar("FaltaEnvido");
 				$(this).unbind('click');
 				_rondaActual.continuarRonda();
 			});
@@ -931,9 +925,6 @@
 				_rondaActual.logCantar(_rondaActual.equipoEnvido.jugador,"N");
 				_rondaActual.jugarEnvido(false);
 				_rondaActual.enEspera = false;
-				 deshabilitar("Envido");
-				 deshabilitar("RealEnvido");
-				 deshabilitar("FaltaEnvido");
 				$(this).unbind('click');
 				_rondaActual.continuarRonda();
 			});
