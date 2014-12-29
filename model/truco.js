@@ -4,7 +4,7 @@
 	var _rondaActual = null;
 	var _partidaActual = null;
 	var audio = null;
-	var limitePuntaje = 15;
+	var limitePuntaje = 30;
 	var Debug = false;
 	var _ganador = null;
 	
@@ -59,6 +59,18 @@
 				}
 			});
 		}
+		iniciarBotones();
+	}
+	
+	function iniciarBotones(){
+		$("#Truco").show();
+    	$("#Envido").show();
+    	$("#RealEnvido").show();
+    	$("#FaltaEnvido").show();
+    	$("#reTruco").hide();
+    	$("#vale4").hide();
+    	$("#Quiero").hide();
+    	$("#NoQuiero").hide();
 	}
 	
 	function reiniciar(){
@@ -66,7 +78,7 @@
 		var _rondaActual = null;
 		var _partidaActual = null;
 		var audio = null;
-		var limitePuntaje = 15;
+		var limitePuntaje = 30;
 		var Debug = false;
 		setUp();
 	}
@@ -113,16 +125,16 @@
     	$("#" + elementId).removeAttr("disabled");
     }
     
-    function iniciarBotones(){
-    	habilitar("Truco");
-    	habilitar("Envido");
-    	habilitar("RealEnvido");
-    	habilitar("FaltaEnvido");
-    	deshabilitar("reTruco");
-    	deshabilitar("vale4");
-    	deshabilitar("Quiero");
-    	deshabilitar("NoQuiero");
-    }	
+    // function iniciarBotones(){
+    	// habilitar("Truco");
+    	// habilitar("Envido");
+    	// habilitar("RealEnvido");
+    	// habilitar("FaltaEnvido");
+    	// deshabilitar("reTruco");
+    	// deshabilitar("vale4");
+    	// deshabilitar("Quiero");
+    	// deshabilitar("NoQuiero");
+    // }	
     
 	//Funciones Primitivas
 	function getRandomInt (min, max) {
