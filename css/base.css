@@ -599,7 +599,7 @@ h1 {
 }
 #configuraciones .box-content {
     width: 12em;
-    height: 2em;
+    height: 3em;
     background: #555;
     -webkit-transition: all  .1s linear;
     -moz-transition: all .1s linear;
