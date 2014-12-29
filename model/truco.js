@@ -225,7 +225,7 @@
 		}
 		x = x * -1 * (this.numero - 1);
 		return x.toString() + 'px ' + y.toString() + 'px'; 
-	}
+	};
 	
 	Naipe.prototype.getNombre = function () {
 		return this.numero + ' de ' + this.palo;
@@ -242,7 +242,7 @@
             }
         }
         return (cuantas/maso.length);
-    }
+    };
 
 	/*******************************************************************
 	 * 
@@ -289,7 +289,7 @@
 		}
 		//html += '</ul>';
 		//_log.innerHTML += html;
-	}
+	};
 	//------------------------------------------------------------------
 	//  Determina los puntos de envido en la mano del jugador
 	//------------------------------------------------------------------
@@ -333,7 +333,7 @@
 			puntos = maximo;
 		}
 		return puntos;
-	}
+	};
 	//------------------------------------------------------------------
 	// El humano juega una carta
 	//------------------------------------------------------------------
@@ -346,7 +346,7 @@
 			this.cartasEnMano.splice(indice,1);
 			return carta;
 		}
-	}
+	};
 	/*******************************************************************
 	 * 
 	 * Clase Probabilidad
@@ -373,7 +373,7 @@
 		if ( puntos <= 7 ) return puntos * pen1 ;
 		else return puntos * pen2 + h;  
 		
-	}
+	};
 	//------------------------------------------------------------------
 	//  Pondera la carta jugada del humano (para envido)
 	//------------------------------------------------------------------
@@ -386,7 +386,7 @@
 			var h = this.cv1;
 			return  e * m + h;
 		}		
-	}
+	};
 	//------------------------------------------------------------------
 	// Calcula la media de un vector (Para determinar el canto usual del humano)
 	//------------------------------------------------------------------
@@ -407,7 +407,7 @@
 		var t = pcc.sort(function(a,b){return a-b});
 		if (t.length % 2 == 0 )  return   ( t[t.length  / 2]  + t[t.length/2 - 1 ]    ) / 2;
 		else return t[(t.length - 1) / 2] ;
-	}
+	};
 	
 	//------------------------------------------------------------------
 	// Deduce las posibles cartas segun los puntos de envido
@@ -545,14 +545,14 @@
 				}
 		return posibles; // Faltaria sacar las cartas que ya jugo !!!  
 			             // si canto 7 y ya jugo uno puede tener otros 7 
-	}
+	};
 	
     Probabilidad.prototype.promedioTruco = function (cartas){
         var suma = 0;
         for(var i = 0; i < cartas.length; i++)
             suma = suma + cartas[i].probGanar();
         return (suma / cartas.length);
-    }
+    };
 		
 
 		
@@ -599,7 +599,7 @@
 			return null;
 		}
         
-	}
+	};
 	//------------------------------------------------------------------
 	
 	//------------------------------------------------------------------
@@ -611,7 +611,7 @@
             this.equipoEnTurno = this.equipoPrimero;
         }
         this.jugadasEnMano = this.jugadasEnMano + 1;
-	}
+	};
 	
 	//------------------------------------------------------------------
 	// Inicia la ronda
@@ -644,7 +644,7 @@
 		$('.game-deck').find('.card').css('background-image', 'none');
 		this.continuarRonda();
 		
-	}
+	};
 	//------------------------------------------------------------------
 	// En este momento se puede jugar una carta o hacer un canto
 	//------------------------------------------------------------------
@@ -737,7 +737,7 @@
 							setTimeout(function() {
 								$naipe.parent().addClass('naipe-remove');
 							}, 150);
-						}
+						};
 						
 						setTimeout(delay, 1000);
 						
@@ -811,14 +811,14 @@
 						$elementoPosicionador.css('background-image', $card.css('background-image'));
 						$elementoPosicionador.css('background-position', $card.css('background-position'));
 						$card.attr('style', 'display:none!important;');
-					}
+					};
 					
 					setTimeout(delay, 1000);
 					
 					this.pasarTurno();
 				}
 			}
-	}
+	};
 	
 	//------------------------------------------------------------------
 	// ALgun jugador canto truco y el otro tiene que responder
@@ -849,7 +849,7 @@
 				_rondaActual.enEspera = false;
 				$(this).unbind('click');
 				_rondaActual.continuarRonda();
-            })
+            });
 
             $("#Quiero").unbind('click').click(function (event){
 				_rondaActual.logCantar(_rondaActual.equipoTruco.jugador,"S");
@@ -888,7 +888,7 @@
 					break;
 				}
         }
-    }
+    };
 	//------------------------------------------------------------------
 	// Responder envido
 	//------------------------------------------------------------------
@@ -960,7 +960,7 @@
 			}
 			
 		}
-	}
+	};
     
 
 	//------------------------------------------------------------------
@@ -1005,16 +1005,16 @@
                     _rondaActual.equipoSegundo.jugador.statsEnvido(_rondaActual.cantos, _rondaActual.quienCanto, puntosEnv);
                 }
                 _partidaActual.continuar();
-			}
+			};
 			
 			var juntarNaipes = function () {
 				$('.naipe').remove();
-			}
+			};
 			
 			setTimeout(juntarNaipes, 2000);
 			setTimeout(repartir, 2500);
 		}	
-	}
+	};
 	//------------------------------------------------------------------
 	// Determina quien gana el envido 
 	//------------------------------------------------------------------
@@ -1061,7 +1061,7 @@
 		this.puedeEnvido = false;
 		this.equipoEnvido = null;
         //this.cantos = [];
-	}
+	};
 	//------------------------------------------------------------------
 	// Calcula los puntos de Envido para le ganador y el perdedor
 	//------------------------------------------------------------------
@@ -1089,7 +1089,7 @@
 			}
 		}
 		return {ganador:g ,perdedor:p};    
-	}
+	};
      //------------------------------------------------------------------
     // Calcula los puntos de truco 
     //------------------------------------------------------------------
@@ -1115,7 +1115,7 @@
                 break;
         }
         return {querido:g, noQuerido:p};
-    }
+    };
 	//------------------------------------------------------------------
 	// Escribe en el log quien canto
 	//------------------------------------------------------------------
@@ -1172,7 +1172,7 @@
 		}, 1300);
 		_log.innerHTML = "<b>" + jugador.nombre + " canto: " + "</b> " + mensaje + '<br /> ' + _log.innerHTML ;
 		
-	}
+	};
 	//------------------------------------------------------------------
 	// Reparte las cartas para una nueva ronda
 	//------------------------------------------------------------------
@@ -1217,7 +1217,7 @@
         //_log.innerHTML = '<b> Promedio para el truco: ' + j2.prob.promedioTruco(j2.cartasEnMano) + '<br/>' + _log.innerHTML;
 		return maso.length;
 		
-	}
+	};
 	//------------------------------------------------------------------
 	// Genera una baraja
 	//------------------------------------------------------------------
@@ -1265,7 +1265,7 @@
 		baraja.push(new Naipe(1, 4, 4, 'Oro'));
 		baraja.push(new Naipe(1, 4, 4, 'Copa'));
 		return baraja;
-	}
+	};
 	//------------------------------------------------------------------
 	// Determina el ganador de una mano
 	//------------------------------------------------------------------
@@ -1311,7 +1311,7 @@
 				}
 			}
 		}
-	}
+	};
 	//------------------------------------------------------------------
 	// Determina el ganador de la ronda
 	//------------------------------------------------------------------
@@ -1361,7 +1361,7 @@
 			}
 		}
 		
-	}
+	};
 	
 	/*******************************************************************
 	 * 
@@ -1417,7 +1417,7 @@
 		$('#player-one').find('.player-name').html(jugador1.nombre);
 		
 		this.continuar();
-	}
+	};
 	//------------------------------------------------------------------
 	// Continua la partida, una nueva ronda
 	//------------------------------------------------------------------
@@ -1456,7 +1456,7 @@
 		    _log.innerHTML = '<hr />' + '<br />' + puntajeFinal  + _log.innerHTML ;
 			terminarPartida(this.equipoPrimero, this.equipoSegundo, puntajeFinal); 	
 		}
-	}
+	};
 	
 	
 	
