@@ -62,17 +62,6 @@
 		iniciarBotones();
 	}
 	
-	function iniciarBotones(){
-		$("#Truco").show();
-    	$("#Envido").show();
-    	$("#RealEnvido").show();
-    	$("#FaltaEnvido").show();
-    	$("#reTruco").hide();
-    	$("#vale4").hide();
-    	$("#Quiero").hide();
-    	$("#NoQuiero").hide();
-	}
-	
 	function reiniciar(){
 		var _log = document.getElementById('log');
 		var _rondaActual = null;
@@ -125,16 +114,16 @@
     	$("#" + elementId).removeAttr("disabled");
     }
     
-    // function iniciarBotones(){
-    	// habilitar("Truco");
-    	// habilitar("Envido");
-    	// habilitar("RealEnvido");
-    	// habilitar("FaltaEnvido");
-    	// deshabilitar("reTruco");
-    	// deshabilitar("vale4");
-    	// deshabilitar("Quiero");
-    	// deshabilitar("NoQuiero");
-    // }	
+    function iniciarBotones(){
+    	habilitar("Truco");
+    	habilitar("Envido");
+    	habilitar("RealEnvido");
+    	habilitar("FaltaEnvido");
+    	deshabilitar("reTruco");
+    	deshabilitar("vale4");
+    	deshabilitar("Quiero");
+    	deshabilitar("NoQuiero");
+    }	
     
 	//Funciones Primitivas
 	function getRandomInt (min, max) {
@@ -175,7 +164,7 @@
 			if(this.cbx.checked && this.fx[soundName] !== null && this.fx[soundName] !== undefined) {
 				this.fx[soundName].play();
 			}
-		}
+		};
 	 }
 	
 	
@@ -656,14 +645,19 @@
 					// Habilitamos los botones
 					this.enEspera = true;
 					_rondaActual = this;
-					$("#Quiero").hide();
-					$("#NoQuiero").hide();
-					$('.label-cantos--SN').hide();
-					$(".canto").hide();
-					$(".cantot").hide();
+			    	deshabilitar("Envido");
+			    	deshabilitar("RealEnvido");
+			    	deshabilitar("FaltaEnvido");
+					deshabilitar("Truco");
+			    	deshabilitar("reTruco");
+			    	deshabilitar("vale4");
+			    	deshabilitar("Quiero");
+			    	deshabilitar("NoQuiero");
 					//  Envido del Humano
 					if (this.puedeEnvido === true){
-						$(".canto").show();
+				    	habilitar("Envido");
+				    	habilitar("RealEnvido");
+				    	habilitar("FaltaEnvido");
 						$(".canto").unbind('click').click(function (event){ 
 							var c = $(this).attr('data-envido');
                             _rondaActual.puedeEnvido = false;
@@ -674,7 +668,8 @@
 							_rondaActual.enEspera = false;
 							$(this).unbind('click');
                             //deshabilito los cantos correspondientes
-                            $(".boton").hide();
+					    	deshabilitar("Quiero");
+					    	deshabilitar("NoQuiero");
 							_rondaActual.continuarRonda();
 						
 						});
@@ -684,15 +679,15 @@
                         var ultimo = this.truco.getLast();
                         switch (ultimo) {
 							case 'T':
-								$('#reTruco').show();
+						    	habilitar("reTruco");
 								break;
 							case 'RT':
-								$('#vale4').show();
+						    	habilitar("vale4");
 								break;
 							case 'V':
 								break;
 							default:
-								$('#Truco').show();
+								habilitar("Truco");
 								break;
 						}
 						$(".cantot").unbind('click').click(function(event){
@@ -702,7 +697,8 @@
 							_rondaActual.equipoTruco = _rondaActual.equipoEnEspera(_rondaActual.equipoEnTurno);
 							_rondaActual.logCantar(_rondaActual.equipoEnTurno.jugador, c);
 							_rondaActual.enEspera = false;
-							$(".boton").hide();
+					    	deshabilitar("Quiero");
+					    	deshabilitar("NoQuiero");
 							$(this).unbind('click');
 							_rondaActual.continuarRonda();
 						});
@@ -826,22 +822,45 @@
 	
     Ronda.prototype.decidirTruco = function(){
         if (this.equipoTruco.jugador.esHumano) {
-            var _btnsCantoTruco = $('.cantot').hide();
-            $('.boton').show();
+            deshabilitar("Truco");
+	    	deshabilitar("reTruco");
+	    	deshabilitar("vale4");
+	    	habilitar("Quiero");
+	    	habilitar("NoQuiero");
 			$('.label-cantos--SN').show();
             var ultimoCanto = this.truco.getLast();
             switch(ultimoCanto){
                 case 'T':
-                    $('#reTruco').show();
+                	habilitar("reTruco");
                     break;
                 case 'RT':
-                    $('#vale4').show();
+                	habilitar("vale4");
                     break;
             }
             this.enEspera = true;
             _rondaActual = this;
             
-            _btnsCantoTruco.unbind('click').click(function (event){
+            $("#Truco").unbind('click').click(function (event){
+                var c = $(this).attr('data-truco');
+				_rondaActual.logCantar(_rondaActual.equipoTruco.jugador,c);
+				_rondaActual.truco.push(c);
+				_rondaActual.equipoTruco = _rondaActual.equipoEnEspera(_rondaActual.equipoTruco);
+				_rondaActual.enEspera = false;
+				$(this).unbind('click');
+				_rondaActual.continuarRonda();
+            });
+            
+            $("#reTruco").unbind('click').click(function (event){
+                var c = $(this).attr('data-truco');
+				_rondaActual.logCantar(_rondaActual.equipoTruco.jugador,c);
+				_rondaActual.truco.push(c);
+				_rondaActual.equipoTruco = _rondaActual.equipoEnEspera(_rondaActual.equipoTruco);
+				_rondaActual.enEspera = false;
+				$(this).unbind('click');
+				_rondaActual.continuarRonda();
+            });
+            
+            $("#vale4").unbind('click').click(function (event){
                 var c = $(this).attr('data-truco');
 				_rondaActual.logCantar(_rondaActual.equipoTruco.jugador,c);
 				_rondaActual.truco.push(c);
@@ -896,22 +915,27 @@
 	Ronda.prototype.decidirEnvido = function () {
 		if (this.equipoEnvido.jugador.esHumano) {   // Creo los bind para que el jugador decida
 			var ultimoCanto = this.cantos.getLast();
-			var _canto      = $('.canto').hide();
+			deshabilitar("Envido");
+			deshabilitar("RealEnvido");
+			deshabilitar("FaltaEnvido");
 			var _quiero     = $("#Quiero").show();
 			var _noQuiero   = $("#NoQuiero").show();
+			habilitar("Quiero");
+			habilitar("NoQuiero");
 			$('.label-cantos--SN').show();
 			switch (ultimoCanto) {
 				case 'E':
-					$('#Envido').show();
+					habilitar("Envido");
 				case 'EE':
-					$('#RealEnvido').show();
+					habilitar("RealEnvido");
 				case 'R':
-					$('#FaltaEnvido').show();
+					habilitar("FaltaEnvido");
 			}
 			this.enEspera = true;
 			_rondaActual = this;
 			
-			_canto.unbind('click').click(function (event){ 
+			
+			$("#Envido").unbind('click').click(function (event){ 
 				var c = $(this).attr('data-envido');
 				if (ultimoCanto === "E" && c === "E") c = "EE";
 				_rondaActual.logCantar(_rondaActual.equipoEnvido.jugador,c);
@@ -923,7 +947,29 @@
 				_rondaActual.continuarRonda();
 			} );
 			
+			$("#RealEnvido").unbind('click').click(function (event){ 
+				var c = $(this).attr('data-envido');
+				if (ultimoCanto === "E" && c === "E") c = "EE";
+				_rondaActual.logCantar(_rondaActual.equipoEnvido.jugador,c);
+				_rondaActual.cantos.push(c);
+                _rondaActual.quienCanto.push('H');
+				_rondaActual.equipoEnvido = _rondaActual.equipoEnEspera(_rondaActual.equipoEnvido);
+				_rondaActual.enEspera = false;
+				$(this).unbind('click');
+				_rondaActual.continuarRonda();
+			} );
 			
+			$("#FaltaEnvido").unbind('click').click(function (event){ 
+				var c = $(this).attr('data-envido');
+				if (ultimoCanto === "E" && c === "E") c = "EE";
+				_rondaActual.logCantar(_rondaActual.equipoEnvido.jugador,c);
+				_rondaActual.cantos.push(c);
+                _rondaActual.quienCanto.push('H');
+				_rondaActual.equipoEnvido = _rondaActual.equipoEnEspera(_rondaActual.equipoEnvido);
+				_rondaActual.enEspera = false;
+				$(this).unbind('click');
+				_rondaActual.continuarRonda();
+			} );
 			
 			_quiero.unbind('click').click(function (event){
 				_rondaActual.logCantar(_rondaActual.equipoEnvido.jugador,"S");
