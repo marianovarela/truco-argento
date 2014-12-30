@@ -81,14 +81,24 @@
 	}
 	
 	function reiniciar(){
-		sacarCarta();
-		// var _log = document.getElementById('log');
-		// var _rondaActual = null;
-		// var _partidaActual = null;
-		// var audio = null;
-		// var limitePuntaje = 30;
-		// var Debug = false;
-		// setUp();
+		var _log = document.getElementById('log');
+		var _rondaActual = null;
+		var _partidaActual = null;
+		var audio = null;
+		var limitePuntaje = 30;
+		var Debug = false;
+		setUp();
+		// agregarNaipes();
+	}
+	
+	function agregarNaipes(){
+		var naipes = component.root.components[0].components[1];
+		naipes.remove_leaf("naipe-0");
+		naipes.remove_leaf("naipe-1");
+		naipes.remove_leaf("naipe-2");
+		naipes.add(extensible.create_leaf('naipe-0').set_priority(0));
+        naipes.add(extensible.create_leaf('naipe-1').set_priority(1));
+        naipes.add(extensible.create_leaf('naipe-2').set_priority(2));
 	}
 	
 	function reiniciarDesdeDialog(){
@@ -1519,7 +1529,7 @@
 			
 		}
 		if(!(this.equipoPrimero.puntos < limitePuntaje && this.equipoSegundo.puntos < limitePuntaje)) {
-			var puntajeFinal = 'PUNTAJE FINAL : ' + this.equipoPrimero.jugador.nombre + ' ' + this.equipoPrimero.puntos + ' - '+ this.equipoSegundo.jugador.nombre + ' ' + this.equipoSegundo.puntos
+			var puntajeFinal = 'PUNTAJE FINAL : ' + this.equipoPrimero.jugador.nombre + ' ' + this.equipoPrimero.puntos + ' - '+ this.equipoSegundo.jugador.nombre + ' ' + this.equipoSegundo.puntos;
 		    _log.innerHTML = '<hr />' + '<br />' + puntajeFinal  + _log.innerHTML ;
 			terminarPartida(this.equipoPrimero, this.equipoSegundo, puntajeFinal); 	
 		}
@@ -1592,6 +1602,7 @@
 })(this);
 
 function iniciarDialog(){
+	// delete component.root;
 	component.exit = extensible.create_horizontal('exit');
 	
 	component.root.remove('main');
@@ -1610,9 +1621,8 @@ function iniciarDialog(){
 }
 
 function reiniciarTablero(){
-	component.root.remove('exit');
+	delete component.exit;
 	iniciarTablero();
-	console.log(component);
 	$(function(){component.main_left.set_active(true);});
 }
 
