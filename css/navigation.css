@@ -10,7 +10,8 @@
 #Envido.hover, #RealEnvido.hover, #FaltaEnvido.hover,
 #IrAlMazo.hover, #Truco.hover, #reTruco.hover, #vale4.hover,
 #Quiero.hover, #NoQuiero.hover, #Reiniciar-left.hover,
-#Reiniciar-right.hover, #Salir.hover {
+#Reiniciar-right.hover, #Salir.hover,
+#Reiniciar-dialog.hover, #Salir-dialog.hover {
 	width: 120px;
     height: 40px;
 }

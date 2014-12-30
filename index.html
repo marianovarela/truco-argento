@@ -14,7 +14,7 @@
 		<script type="text/javascript" src="js/jquery-ui.js"></script>
 		<script type="text/plain" src="js/jquery-1.11.2.min.map"></script>
 		<script type="text/javascript" src="js/navigation/extensible.js"></script>
-		<script type="text/javascript" src="js/navigation/control.js"></script>
+	<!--	<script type="text/javascript" src="js/navigation/control.js"></script> -->
 	</head>
 	<body id="main" class="game">
 		<div class="game-wrapper">
@@ -94,9 +94,6 @@
 				<dialog id="dialog">
 					<div class="modal-header">
 						<div class="form-group">
-							<button type="button" onclick="cerrarDialog()" class="close" data-dismiss="modal" aria-hidden="true">
-								&times;
-							</button>
 							<h4 id="resultado" class="modal-title"></h4>
 						</div>
 					</div>
@@ -106,8 +103,8 @@
 					</div>
 					<!-- /modal-body -->
 					<div class="modal-footer">
-						<input type="button" onClick="reiniciarDesdeDialog()" value="Reiniciar" id="Reiniciar-right" class="btn btn-warning">
-						<input type="button" onClick="salir()" value="Salir del juego" class="btn btn-danger">
+						<input type="button" onClick="reiniciarDesdeDialog()" value="Reiniciar" id="Reiniciar-dialog" class="btn btn-warning">
+						<input type="button" onClick="salir()" value="Salir del juego" id="Salir-dialog" class="btn btn-danger">
 					</div>
 				</dialog>
 
