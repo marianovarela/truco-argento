@@ -139,6 +139,16 @@ var extensible = function($rootScope) {
 					item_index = this.components.indexOf(component);
 					item_index > -1 && this.components.splice(item_index, 1);
 				},
+				remove_naipe : function(component) {
+					var index = 0;
+					var length = this.components.length;
+					while(index < length && component != this.components[index].identifier){
+						index += 1;	
+					}
+					console.log(this.components[index]);
+					index > -1 && this.components.splice(index, 1);
+					console.log(this.components);
+				},
 				handle_on_selected : function(key) {
 					return this.selected && this.selected.handle(key);
 				},

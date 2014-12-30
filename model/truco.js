@@ -81,13 +81,14 @@
 	}
 	
 	function reiniciar(){
-		var _log = document.getElementById('log');
-		var _rondaActual = null;
-		var _partidaActual = null;
-		var audio = null;
-		var limitePuntaje = 30;
-		var Debug = false;
-		setUp();
+		sacarCarta();
+		// var _log = document.getElementById('log');
+		// var _rondaActual = null;
+		// var _partidaActual = null;
+		// var audio = null;
+		// var limitePuntaje = 30;
+		// var Debug = false;
+		// setUp();
 	}
 	
 	function reiniciarDesdeDialog(){
@@ -1611,6 +1612,8 @@ function iniciarDialog(){
 function reiniciarTablero(){
 	component.root.remove('exit');
 	iniciarTablero();
+	console.log(component);
+	$(function(){component.main_left.set_active(true);});
 }
 
 function iniciarTablero() {
@@ -1658,7 +1661,12 @@ function iniciarTablero() {
 
 iniciarTablero();
 	
-	
+	function sacarCarta(indice){
+		var componentes = component.root.components[0].components[1];
+		console.log(componentes);
+		componentes.remove_naipe("naipe-1");
+		console.log(componentes);
+	}	
 	
 	
 	//******************************************************************
