@@ -26,9 +26,6 @@
 	
 	$(function(){component.main_left.set_active(true);});
 	
-	
-	/////////////////////////////////////////////////////////////////////////////////////////////////////
-	////////////////////////////////////////////////////////////////////////////////////////////////////
 	component.control = (function() {
 	  var Control, get_keycode, keycodes, listeners;
 	  listeners = [];
@@ -95,16 +92,10 @@
 	function iniciarDialog(){
 		$(function(){component.main_left.set_not_active();});
 		$(function(){component.exit.set_active(true);});
-		console.log(component);	
 	}
 
 	function reiniciarTablero(){
-		$('#Envido').on('setearActivo', function(){component.main_left.set_active(true); component.exit.set_not_active();});
-		$('#Envido').trigger('setearActivo');
-	}
-	
-	function setearActivo(){
-		console.log("lalalala");
+		component.main_left.set_active(true);
 	}
 	
 	function iniciarTablero() {

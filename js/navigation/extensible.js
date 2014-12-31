@@ -77,18 +77,18 @@ var extensible = function($rootScope) {
 					var hast_to_change;
 					console.log('set_active_down_to_up ' + this.identifier);
 					$('#' + this.identifier).addClass('hover');
-					this.active = true;
 					hast_to_change = this.current_component !== child_component;
 					if (hast_to_change) {
 						this.set_current_component(child_component);
 					}
 					if (changed_child) {
-						if (hast_to_change) {
+						if (hast_to_change || !this.active) {
 							return this.parent.set_active_down_to_up(this, true);
 						} else {
 							return this.apply();
 						}
 					}
+					this.active = true;
 				},
 				set_active : function(percolate_up, skip_set_child) {
 					var child_component;
