@@ -92,19 +92,21 @@
 				</div>
 
 				<dialog id="dialog">
-					<div class="modal-header">
-						<div class="form-group">
-							<h4 id="resultado" class="modal-title"></h4>
+					<div id="exit">
+						<div class="modal-header">
+							<div class="form-group">
+								<h4 id="resultado" class="modal-title"></h4>
+							</div>
 						</div>
-					</div>
-					<!-- /modal-header -->
-					<div class="modal-body">
-						<p id="puntajes"></p>
-					</div>
-					<!-- /modal-body -->
-					<div class="modal-footer">
-						<input type="button" onClick="reiniciarDesdeDialog()" value="Reiniciar" id="Reiniciar-dialog" class="btn btn-warning">
-						<input type="button" onClick="salir()" value="Salir del juego" id="Salir-dialog" class="btn btn-danger">
+						<!-- /modal-header -->
+						<div class="modal-body">
+							<p id="puntajes"></p>
+						</div>
+						<!-- /modal-body -->
+						<div id="end" class="modal-footer">
+							<input type="button" onClick="reiniciarDesdeDialog()" value="Reiniciar" id="Reiniciar-dialog" class="btn btn-warning">
+							<input type="button" onClick="salir()" value="Salir del juego" id="Salir-dialog" class="btn btn-danger">
+						</div>
 					</div>
 				</dialog>
 

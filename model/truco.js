@@ -88,7 +88,7 @@
 		var limitePuntaje = 30;
 		var Debug = false;
 		setUp();
-		// agregarNaipes();
+	    // agregarNaipes();
 	}
 	
 	function agregarNaipes(){
@@ -102,8 +102,8 @@
 	}
 	
 	function reiniciarDesdeDialog(){
-		reiniciar();
 		reiniciarTablero();
+		reiniciar();
 		document.getElementById("dialog").close();
 	}
 	
@@ -1601,80 +1601,79 @@
   })();
 })(this);
 
-function iniciarDialog(){
-	// delete component.root;
-	component.exit = extensible.create_horizontal('exit');
+	function iniciarDialog(){
+		$(function(){component.exit.set_active(true);});	
+	}
+
+	function reiniciarTablero(){
+		console.log(component);
+		$(function(){component.exit.set_not_active();});
+		$(function(){component.main_left.set_active(true);});
+		console.log(component);
+	}
 	
-	component.root.remove('main');
-	component.root
-		.add(extensible.create_horizontal('main')
-	    .add(component.exit.set_priority(0)
-	      .add(extensible.create_horizontal('end').set_priority(0)
-	        .add(extensible.create_leaf('Reiniciar-dialog').set_priority(0))
-	        .add(extensible.create_leaf('Salir-dialog').set_priority(1))
-	      )
-	    )
-		);
+	function iniciarTablero() {
 		
-	$(function(){component.exit.set_active(true);});	
-	
-}
+		component.control.initialize();
+		component.control.subscribe(component.root);
+		
+		component.main_left = extensible.create_vertical('main-left');
+		
+		
+		component.exit = extensible.create_horizontal('exit');
+		
+		component.root
+			.add(extensible.create_horizontal('dialog')
+			    .add(component.exit.set_priority(0)
+			      .add(extensible.create_horizontal('end').set_priority(0)
+			        .add(extensible.create_leaf('Reiniciar-dialog').set_priority(0))
+			        .add(extensible.create_leaf('Salir-dialog').set_priority(1))
+			      )
+			    )
+			);
+		
+		component.root
+		  .add(extensible.create_horizontal('main')
+		    .add(component.main_left.set_priority(0)
+		      .add(extensible.create_horizontal('mentira').set_priority(0)
+		        .add(extensible.create_leaf('Envido').set_priority(0))
+		        .add(extensible.create_leaf('RealEnvido').set_priority(1))
+		        .add(extensible.create_leaf('FaltaEnvido').set_priority(2))
+		      )
+		      .add(extensible.create_horizontal('rabon').set_priority(1)
+		        .add(extensible.create_leaf('IrAlMazo').set_priority(0))
+		        .add(extensible.create_leaf('Truco').set_priority(1))
+		        .add(extensible.create_leaf('reTruco').set_priority(2))
+		        .add(extensible.create_leaf('vale4').set_priority(3))
+		      )
+		      .add(extensible.create_horizontal('respuesta').set_priority(2)
+		        .add(extensible.create_leaf('Quiero').set_priority(0))
+		        .add(extensible.create_leaf('NoQuiero').set_priority(1))
+		        .add(extensible.create_leaf('Reiniciar-left').set_priority(2))
+		      )
+		      
+		    )
+		    .add(extensible.create_horizontal('main-center').set_priority(1)
+		    	.add(extensible.create_leaf('naipe-0').set_priority(0))
+		        .add(extensible.create_leaf('naipe-1').set_priority(1))
+		        .add(extensible.create_leaf('naipe-2').set_priority(2))
+		    )
+		    .add(extensible.create_vertical('main-right').set_priority(2)
+		    	.add(extensible.create_leaf('opciones').set_priority(0))
+		    	.add(extensible.create_horizontal('menu').set_priority(1)
+		    		.add(extensible.create_leaf('Reiniciar-right').set_priority(0))
+		    		.add(extensible.create_leaf('Salir').set_priority(1))
+		    	)
+		    )
+		);
+	}
 
-function reiniciarTablero(){
-	delete component.exit;
 	iniciarTablero();
-	$(function(){component.main_left.set_active(true);});
-}
-
-function iniciarTablero() {
-	
-	component.control.initialize();
-	component.control.subscribe(component.root);
-	
-	component.main_left = extensible.create_vertical('main-left');
-	
-	component.root
-	  .add(extensible.create_horizontal('main')
-	    .add(component.main_left.set_priority(0)
-	      .add(extensible.create_horizontal('mentira').set_priority(0)
-	        .add(extensible.create_leaf('Envido').set_priority(0))
-	        .add(extensible.create_leaf('RealEnvido').set_priority(1))
-	        .add(extensible.create_leaf('FaltaEnvido').set_priority(2))
-	      )
-	      .add(extensible.create_horizontal('rabon').set_priority(1)
-	        .add(extensible.create_leaf('IrAlMazo').set_priority(0))
-	        .add(extensible.create_leaf('Truco').set_priority(1))
-	        .add(extensible.create_leaf('reTruco').set_priority(2))
-	        .add(extensible.create_leaf('vale4').set_priority(3))
-	      )
-	      .add(extensible.create_horizontal('respuesta').set_priority(2)
-	        .add(extensible.create_leaf('Quiero').set_priority(0))
-	        .add(extensible.create_leaf('NoQuiero').set_priority(1))
-	        .add(extensible.create_leaf('Reiniciar-left').set_priority(2))
-	      )
-	      
-	    )
-	    .add(extensible.create_horizontal('main-center').set_priority(1)
-	    	.add(extensible.create_leaf('naipe-0').set_priority(0))
-	        .add(extensible.create_leaf('naipe-1').set_priority(1))
-	        .add(extensible.create_leaf('naipe-2').set_priority(2))
-	    )
-	    .add(extensible.create_vertical('main-right').set_priority(2)
-	    	.add(extensible.create_leaf('opciones').set_priority(0))
-	    	.add(extensible.create_horizontal('menu').set_priority(1)
-	    		.add(extensible.create_leaf('Reiniciar-right').set_priority(0))
-	    		.add(extensible.create_leaf('Salir').set_priority(1))
-	    	)
-	    )
-	);
-}
-
-iniciarTablero();
 	
 	function sacarCarta(indice){
 		var componentes = component.root.components[0].components[1];
 		console.log(componentes);
-		componentes.remove_naipe("naipe-1");
+		componentes.remove_leaf("naipe-1");
 		console.log(componentes);
 	}	
 	
