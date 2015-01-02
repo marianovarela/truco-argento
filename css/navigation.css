@@ -2,6 +2,10 @@
 	border: 3px solid white;
 }
 
+#naipe-0.played, #naipe-1.played, #naipe-2.played{
+	border: 5px solid black;
+}
+
 #naipe-0.hover, #naipe-1.hover, #naipe-2.hover{
 	position: absolute;
 	bottom: 90px;

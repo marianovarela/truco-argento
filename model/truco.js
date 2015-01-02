@@ -292,6 +292,13 @@
     	deshabilitar("vale4");
     	deshabilitar("Quiero");
     	deshabilitar("NoQuiero");
+    }
+    
+    function clases(indice){
+    	var element = "naipe-" + indice;
+    	console.log(element); 
+    	var clase = document.getElementById(element).classList;
+    	console.log(clase);
     }	
     
 	//Funciones Primitivas
@@ -497,6 +504,7 @@
 	//------------------------------------------------------------------
 	
 	Jugador.prototype.jugarCarta =  function (indice) {
+		clases(indice);
 		if(indice !== null && indice !== undefined && this.cartasEnMano.length > indice) {
 			var carta = this.cartasEnMano[indice];
 			_log.innerHTML = '<b>' + this.nombre + ' juega un :</b> ' + carta.getNombre() + '<br /> ' + _log.innerHTML ;

@@ -227,8 +227,8 @@ var extensible = function($rootScope) {
 			return {
 				identifier : identifier,
 				set_active : function() {
-					console.log('set active ' +  this.identifier);
 					$('#' + this.identifier).addClass('hover');
+					console.log('set active ' +  this.identifier);
 					return this.active = true;
 				},
 				set_not_active : function() {
@@ -237,9 +237,14 @@ var extensible = function($rootScope) {
 				},
 				handle : function(key) {
 					if (key === 'enter') {
-						console.log('handling enter ' + this.identifier);
-						$('#' + this.identifier).get(0).click();
-						return true;
+						var classes = document.getElementById(this.identifier).classList;
+						if(classes.contains('naipe-jugado')){
+							return false;
+						}else{
+							console.log('handling enter ' + this.identifier);
+							$('#' + this.identifier).get(0).click();
+							return true;
+						}	
 					}
 					return false;
 				},
