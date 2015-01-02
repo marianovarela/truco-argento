@@ -164,6 +164,23 @@
 		console.log(componentes);
 	}	
 	
+	function iniciarNaipesJugados(){
+		var carta0 = document.getElementById("card-0");
+		var carta1 = document.getElementById("card-1");
+		var carta2 = document.getElementById("card-2");
+		console.log(carta0);
+		console.log(carta1);
+		console.log(carta2);
+		if(carta0 != null){
+			carta0.setAttribute('id', '0');
+		}
+		if(carta1 != null){
+			carta1.setAttribute('id', '1');
+		}
+		if(carta2 != null){
+			carta2.setAttribute('id', '2');
+		}	
+	}
 	
 	function setUp(){
 		_partidaActual = new Partida();
@@ -507,7 +524,7 @@
 	Jugador.prototype.jugarCarta =  function (indice) {
 		var index = indice + this.cartasJugadas.length;
 		var carta = component.root.components[0].components[1].components[index];
-		carta.id_played = 'card-' + (this.cartasJugadas.length) ;
+		carta.id_played = 'card-' + (this.cartasJugadas.length);
 		document.getElementById(this.cartasJugadas.length).setAttribute('id', carta.id_played);	
 			
 		if(indice !== null && indice !== undefined && this.cartasEnMano.length > indice) {
@@ -1226,6 +1243,7 @@
 		if(ganador !== null) {
 			_rondaActual = this;
 			var repartir = function ()  {
+				iniciarNaipesJugados();
 				_log.innerHTML = 'Resultado Ronda: <b><i>' + ganador.nombre + '</i></b>'  + '<br /> ' + _log.innerHTML ;
 
                 if (_rondaActual.envidoStatsFlag && _rondaActual.equipoPrimero.jugador.cartasJugadas.length === 3){
@@ -1651,7 +1669,7 @@
 	//------------------------------------------------------------------
 	
 	Partida.prototype.continuar = function () {
-	    limitePuntaje = 3;
+	    limitePuntaje = 30;
 	    while (this.equipoPrimero.puntos < limitePuntaje && this.equipoSegundo.puntos < limitePuntaje) {
 			var _$tbl = $('#game-score');
 			_log.innerHTML =  "";
