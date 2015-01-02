@@ -7,6 +7,7 @@
 	var limitePuntaje = 30;
 	var Debug = false;
 	var _ganador = null;
+	var cartaActual = 0;
 	
 	component = {};
 
@@ -140,9 +141,9 @@
 		      
 		    )
 		    .add(extensible.create_horizontal('main-center').set_priority(1)
-		    	.add(extensible.create_leaf('naipe-0').set_priority(0))
-		        .add(extensible.create_leaf('naipe-1').set_priority(1))
-		        .add(extensible.create_leaf('naipe-2').set_priority(2))
+		    	.add(extensible.create_card('naipe-0').set_priority(0))
+		        .add(extensible.create_card('naipe-1').set_priority(1))
+		        .add(extensible.create_card('naipe-2').set_priority(2))
 		    )
 		    .add(extensible.create_vertical('main-right').set_priority(2)
 		    	.add(extensible.create_leaf('opciones').set_priority(0))

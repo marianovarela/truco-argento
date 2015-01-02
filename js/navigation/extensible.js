@@ -237,6 +237,43 @@ var extensible = function($rootScope) {
 				},
 				handle : function(key) {
 					if (key === 'enter') {
+						console.log('handling enter ' + this.identifier);
+						$('#' + this.identifier).get(0).click();
+						return true;
+					}
+					return false;
+				},
+				set_navigable_link : function(navigable_link) {
+					return this.navigable_link = navigable_link;
+				},
+				set_priority : function(priority) {
+					this.priority = priority;
+					return this;
+				},
+			};
+		},
+		create_card : function(identifier) {
+			return {
+				identifier : identifier,
+				set_active : function() {
+					var index = this.identifier.substring(7,6);
+					var classes = document.getElementById(this.identifier).classList;
+					if(classes.contains('naipe-jugado')){
+						$('#card-' + index).addClass('played');
+					}else{
+						$('#' + this.identifier).addClass('hover');
+					}
+					console.log('set active ' +  this.identifier);
+					return this.active = true;
+				},
+				set_not_active : function() {
+					var index = this.identifier.substring(7,6);
+					$('#card-' + index).removeClass('played');
+					$('#' + this.identifier).removeClass('hover');
+					return this.active = false;
+				},
+				handle : function(key) {
+					if (key === 'enter') {
 						var classes = document.getElementById(this.identifier).classList;
 						if(classes.contains('naipe-jugado')){
 							return false;
