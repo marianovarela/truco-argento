@@ -255,11 +255,13 @@ var extensible = function($rootScope) {
 		create_card : function(identifier) {
 			return {
 				identifier : identifier,
+				id_played: null,
 				set_active : function() {
+					console.log(this.id_played);
 					var index = this.identifier.substring(7,6);
 					var classes = document.getElementById(this.identifier).classList;
 					if(classes.contains('naipe-jugado')){
-						$('#card-' + index).addClass('played');
+						$('#' + this.id_played).addClass('played');
 					}else{
 						$('#' + this.identifier).addClass('hover');
 					}
@@ -268,7 +270,7 @@ var extensible = function($rootScope) {
 				},
 				set_not_active : function() {
 					var index = this.identifier.substring(7,6);
-					$('#card-' + index).removeClass('played');
+					$('#' + this.id_played).removeClass('played');
 					$('#' + this.identifier).removeClass('hover');
 					return this.active = false;
 				},

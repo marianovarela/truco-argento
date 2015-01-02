@@ -505,7 +505,11 @@
 	//------------------------------------------------------------------
 	
 	Jugador.prototype.jugarCarta =  function (indice) {
-		clases(indice);
+		var index = indice + this.cartasJugadas.length;
+		var carta = component.root.components[0].components[1].components[index];
+		carta.id_played = 'card-' + (this.cartasJugadas.length) ;
+		document.getElementById(this.cartasJugadas.length).setAttribute('id', carta.id_played);	
+			
 		if(indice !== null && indice !== undefined && this.cartasEnMano.length > indice) {
 			var carta = this.cartasEnMano[indice];
 			_log.innerHTML = '<b>' + this.nombre + ' juega un :</b> ' + carta.getNombre() + '<br /> ' + _log.innerHTML ;
