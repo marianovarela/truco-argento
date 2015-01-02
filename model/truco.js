@@ -157,20 +157,10 @@
 
 	iniciarTablero();
 	
-	function sacarCarta(indice){
-		var componentes = component.root.components[0].components[1];
-		console.log(componentes);
-		componentes.remove_leaf("naipe-1");
-		console.log(componentes);
-	}	
-	
 	function iniciarNaipesJugados(){
 		var carta0 = document.getElementById("card-0");
 		var carta1 = document.getElementById("card-1");
 		var carta2 = document.getElementById("card-2");
-		console.log(carta0);
-		console.log(carta1);
-		console.log(carta2);
 		if(carta0 != null){
 			carta0.setAttribute('id', '0');
 		}

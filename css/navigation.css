@@ -3,7 +3,8 @@
 }
 
 #card-0.played, #card-1.played, #card-2.played{
-	border: 5px solid black;
+	background-color: black;
+	border: 5px inset green;
 }
 
 #naipe-0.hover, #naipe-1.hover, #naipe-2.hover{
