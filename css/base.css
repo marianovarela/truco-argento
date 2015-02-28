@@ -525,34 +525,74 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
+
+/**
+ * Font definitions
+ **/
+@font-face {
+    font-family: "Cubano";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../fonts/cubano-regular.otf") format("opentype");
+}
+
 /*CSS*/
 html, body, .game-wrapper, .game-main {
 	height:100%;
 	overflow: hidden;
 }
-h1, h3 {
-	font-family:Kavoon, Helvetica;
+h1, h2, h3, h4, h5, h6 {
+	font-family: Cubano;
 }
-h1 {
+.btn {
+    text-transform: uppercase;
+    font-size: 11px !important;
+    text-shadow: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    font-weight: bold !important;
+}
+.btn-primary {
+    background: #1487d8 !important;
+}
+.btn-success {
+    background: #51ba12 !important;
+}
+.btn.disabled, .btn[disabled] {
+    opacity: 0.2 !important;
 }
 .game {
-	background: #3C1E13 url('../images/bg.jpg');
-	color:white;
-	font-family:Helvetica;
+    background-image: url("../images/bg.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #3C1E13;
+	color: #FFFFFF;
+}
+.game-panel-divider {
+    display:inline-block;
+    width: 35px;
+    vertical-align:top;
+    height: 100%;
+    background-image: url("../images/panel-divider.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: local;
+    background-size: cover;
+    background-color: #FFFFFF;
 }
 .game-panel {
 	display:inline-block;
-	width:35%;
+	width: 300px;
 	vertical-align:top;
-	height: 100%;
-	background: none repeat scroll 0 0 #111111;
-    border-right: 2px solid white;
-    background: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #111), color-stop(100%, #222)); /*#142B0F*/
-	background: -webkit-linear-gradient(bottom, #111, #000);
-	background: -moz-linear-gradient(bottom, #111, #222);
-	background: -o-linear-gradient(bottom, #111, #222);
-	background: -ms-linear-gradient(bottom, #111, #222);
-	background: linear-gradient(bottom, #111, #222);
+    height: 100%;
+    background-image: url("../images/panel-bg.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: local;
+    background-size: cover;
+    background-color: #594432;
 }
 .game-panel .box {
 	width:80%;
@@ -562,27 +602,11 @@ h1 {
 	box-sizing: border-box;         /* Opera/IE 8+ */
     border: 1px solid #999;
 }
-.game-action {
-    position: absolute;
-    bottom: 0;
-    width: 35%;
-    left:0;
-}
-.game-action .cantos-panel {
-    width: 80%;
-    margin:.5em auto 0;
-    border: 1px solid #999;
-    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-    box-sizing: border-box;         /* Opera/IE 8+ */
-    border-bottom: 0;
-
-}
 .box-title {
-    padding: .2em .2em 0 .2em;
     text-align: center;
-    background: #333;
-    border-bottom: 1px solid #999;
+    background: #244109;
+    height: 70px;
+    border-radius: 50%;
 }
 .box-title--hidden {
     border-bottom: 0;
@@ -620,27 +644,24 @@ h1 {
 .label-cantos {
 	margin:.8em 0 .4em;
 }
-.label-cantos--first {
-	margin:0 0 .4em;
-}
 #configuraciones {
     position: fixed;
-    top: 0;
-    right: 0;
-    border: 1px solid #999;
-    border-top: 0;
-    border-right: 0;
-    width: 200px;
+    top: 20px;
+    right: 15px;
+    width: 180px;
 }
 .game-main {
 	display: inline-block;
-	width:62%;
+    width: 70%;
     min-width:450px;
 	vertical-align:top;
 }
 ul li {
-    display:inline-block!important;
-    margin-right:2em;
+    display: inline-block!important;
+    margin-right: 2em;
+}
+ul li:nth-last-child(1) {
+   margin-right: 0; 
 }
 #player-one {
 	position:absolute;
@@ -702,14 +723,6 @@ ul li {
 	background-color: #00248C;
 	border:1px solid #EEE;
 }
-/*.naipe {
-    height:221px;
-    width:145px;
-    background: url('../images/naipe.png');
-    display:inline-block;
-    margin-right:2em;
-}*/
-
 .naipe {
     background: url('../images/naipes-e.png') 0 0;
     width:98px;
@@ -732,35 +745,38 @@ ul li {
 .naipe-jugado {
 	position:relative;
 }
-.game-header {
-	height:10%;
-}
-.game-header h1{
-	text-align:center;
-	margin:.3em 0;
+.game-header h2 {
+	text-align: center;
+	margin: 20px;
 }
 #game-score {
-	height:10%;
-	border:1px solid white;
-	width:80%;
-	margin:auto;
+    font-family: Cubano;
+    font-size: 12px;
+	width: 80%;
+	margin: 10px auto;
 }
 #game-score td,
 #game-score th {
-	text-align:center;
-	border:1px solid white;
-	width:50%;
+	text-align: center;
+	width: 325px;
+}
+#game-score td div {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    line-height:50px;
+    text-align:center;
+    margin: 0 auto;
+    font-size: 16px;
 }
 #log, .log-title {
 	overflow-y:auto;
-    width: 80%;
-    margin: .2em auto;
-}
-.log-title {
-    text-align: center;
+    margin-left: 10px;
 }
 #log {
-    height:50%;
+    height: 20%;
+    font-size: 10px;
 }
 .green {
 	color:green;
@@ -802,7 +818,6 @@ ul li {
 	top:30px;
 	left:300px;
 }	
-
 .card-6 {
 	top:0;
 	left:330px;

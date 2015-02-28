@@ -1647,8 +1647,8 @@
 		var _$tbl = $('#game-score');
 		_$tbl.find('.player-one-name').html(jugador1.nombre);
 		_$tbl.find('.player-two-name').html(maquina.nombre);
-		_$tbl.find('.player-one-points').html('0');
-		_$tbl.find('.player-two-points').html('0');
+		_$tbl.find('.player-one-points div').html('0');
+		_$tbl.find('.player-two-points div').html('0');
 		$('#player-two').find('.player-name').html(maquina.nombre);
 		$('#player-one').find('.player-name').html(jugador1.nombre);
 		
@@ -1663,8 +1663,8 @@
 	    while (this.equipoPrimero.puntos < limitePuntaje && this.equipoSegundo.puntos < limitePuntaje) {
 			var _$tbl = $('#game-score');
 			_log.innerHTML =  "";
-			_$tbl.find('.player-one-points').html(this.equipoPrimero.puntos);
-			_$tbl.find('.player-two-points').html(this.equipoSegundo.puntos);
+			_$tbl.find('.player-one-points div').html(this.equipoPrimero.puntos);
+			_$tbl.find('.player-two-points div').html(this.equipoSegundo.puntos);
 			// _log.innerHTML = '<hr />' + '<br /> Puntaje parcial : ' + this.equipoPrimero.jugador.nombre + ' ' + this.equipoPrimero.puntos + ' - '+ this.equipoSegundo.jugador.nombre + ' ' + this.equipoSegundo.puntos + '<br /> ' + '<hr />' + _log.innerHTML ;
 			if(this.equipoSegundo.esMano) {
 				this.equipoSegundo.esMano = false;

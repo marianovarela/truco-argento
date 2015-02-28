@@ -20,8 +20,9 @@
 		<div class="game-wrapper">
 			<div id="main-left" class="game-panel">
 				<div class="game-header">
-					<h1>Truco argento</h1>
+					<h2>Truco argento</h2>
 				</div>
+				<hr/>
 				<table id="game-score">
 					<thead>
 						<tr>
@@ -31,52 +32,42 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td class="player-one-points"></td>
-							<td class="player-two-points"></td>
+							<td class="player-one-points"><div></div></td>
+							<td class="player-two-points"><div></div></td>
 						</tr>
 					</tbody>
 				</table>
-				<div class="game-action">
-					<fieldset id="cantos" class="cantos-panel">
-						<legend>
-							Cantos
-						</legend>
-						<div id="mentira">
-							<div class="label-cantos label-cantos--first">
-								Para la mentira ...
-							</div>
-							<input type="button" value="Envido"       id="Envido"         class="canto btn btn-primary"  data-envido='E' />
-							<input type="button" value="Real Envido"  id="RealEnvido"     class="canto btn btn-success"  data-envido='R'/>
-							<input type="button" value="Falta Envido" id="FaltaEnvido"    class="canto btn btn-inverse"  data-envido='F'/>
-						</div>
-						<div id="rabon">
-							<div class="label-cantos">
-								Para el rabón ...
-							</div>
-							<input type="button" value="Me voy al mazo"  id="IrAlMazo"   class="btn"/>
-							<input type="button" value="Truco"           id="Truco"   class="cantot btn btn-primary" data-truco='T' />
-							<input type="button" value="Quiero re Truco" id="reTruco" class="cantot btn btn-success" data-truco='RT' />
-							<input type="button" value="Quiero vale 4"   id="vale4"   class="cantot btn btn-inverse" data-truco='V' />
-						</div>
-						<div id="respuesta">
-							<div class="label-cantos label-cantos--SN">
-								Mi respuesta ...
-							</div>
-							<input type="button" value="Quiero"    id="Quiero"   class="boton btn"/>
-							<input type="button" value="No Quiero" id="NoQuiero" class="boton btn" />
-							<input type="button" onClick="reiniciar()" value="Reiniciar" id="Reiniciar-left" class="btn btn-warning">
-						</div>
-							
-					</fieldset>
-				</div>
-				<h2 class="log-title">Acciones</h2>
+				<hr/>
+				<h3 class="log-title">Acciones</h3>
 				<div id="log"></div>
-			</div>
+				<hr/>
+				<div class="game-action">
+					<h3 class="log-title">Cantos</h3>
+					<div id="mentira">
+						<input type="button" value="Envido"       id="Envido"         class="btn btn-primary"  data-envido='E' />
+						<input type="button" value="Real Envido"  id="RealEnvido"     class="btn btn-primary"  data-envido='R'/>
+						<input type="button" value="Falta Envido" id="FaltaEnvido"    class="btn btn-primary"  data-envido='F'/>
+					</div>
+					<br/>
+					<div id="rabon">
+						<input type="button" value="Me voy al mazo"  id="IrAlMazo"   class="btn btn-primary"/>
+						<input type="button" value="Truco"           id="Truco"   class="btn btn-primary" data-truco='T' />
+						<input type="button" value="Quiero re Truco" id="reTruco" class="btn btn-primary" data-truco='RT' />
+						<input type="button" value="Quiero vale 4"   id="vale4"   class="btn btn-primary" data-truco='V' />
+					</div>
+					<br/>
+					<div id="respuesta">
+						<input type="button" value="Quiero"    id="Quiero"   class="btn btn-primary"/>
+						<input type="button" value="No Quiero" id="NoQuiero" class="btn btn-primary" />
+						<input type="button" onClick="reiniciar()" value="Reiniciar" id="Reiniciar-left" class="btn btn-success">
+					</div>
+				</div>
+			</div><div class="game-panel-divider"></div>
 			<div class="game-main" style="position: relative;">
 				<div class="main-rigth">
 					<div id="configuraciones" class="box box--collapsable">
 						<div id="opciones" class="box-title">
-							<img src="images/naipe.png" alt="Acceso a las configuraciones" title="Acceso a las configuraciones" width="32"/>
+							<img src="images/maso-naipes.png" alt="Acceso a las configuraciones" title="Acceso a las configuraciones"/>
 						</div>
 						<div id="menu" class="box-content">
 	

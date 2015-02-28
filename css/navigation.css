@@ -1,7 +1,3 @@
-#opciones.hover{
-	border: 3px solid white;
-}
-
 #card-0.played, #card-1.played, #card-2.played{
 	background-color: black;
 	border: 5px inset green;
@@ -10,23 +6,4 @@
 #naipe-0.hover, #naipe-1.hover, #naipe-2.hover{
 	position: absolute;
 	bottom: 90px;
-}
-
-#Envido.hover, #RealEnvido.hover, #FaltaEnvido.hover,
-#IrAlMazo.hover, #Truco.hover, #reTruco.hover, #vale4.hover,
-#Quiero.hover, #NoQuiero.hover, #Reiniciar-left.hover,
-#Reiniciar-right.hover, #Salir.hover,
-#Reiniciar-dialog.hover, #Salir-dialog.hover {
-	width: 120px;
-    height: 40px;
-}
-
-#Salir.hover {
-	width: 100px;
-    height: 40px;
-}
-
-#IrAlMazo.hover {
-	width: 130px;
-    height: 40px;
 }
