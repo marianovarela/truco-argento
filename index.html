@@ -83,26 +83,33 @@
 					<h3 class="player-content"><span class="player-name"></span><div class="player-voice"></div></h3>
 					<ul class="player-cards" ></ul>
 				</div>
+				<dialog id="dialog" class="modal">
+					<div class="modal-body">
+						<h4 id="resultado" class="modal-title"></h4>
+						<p class="final-points">PUNTAJE FINAL</p>
+						<table id="final-score">
+							<thead>
+								<tr>
+									<th>Jugador</th>
+									<th>Computadora</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="player-one-final-points"><div></div></td>
+									<td class="player-two-final-points"><div></div></td>
+								</tr>
+							</tbody>
+						</table>
 
-				<dialog id="dialog">
-					<div id="exit">
-						<div class="modal-header">
-							<div class="form-group">
-								<h4 id="resultado" class="modal-title"></h4>
-							</div>
-						</div>
-						<!-- /modal-header -->
-						<div class="modal-body">
-							<p id="puntajes"></p>
-						</div>
-						<!-- /modal-body -->
-						<div id="end" class="modal-footer">
-							<input type="button" onClick="reiniciarDesdeDialog()" value="Reiniciar" id="Reiniciar-dialog" class="btn btn-warning">
-							<input type="button" onClick="salir()" value="Salir del juego" id="Salir-dialog" class="btn btn-danger">
-						</div>
+						<table class="modal-actions">
+							<tr>
+								<td><input type="button" onClick="reiniciarDesdeDialog()" value="Reiniciar Juego" id="Reiniciar-dialog" class="btn btn-success"></td>
+								<td><input type="button" onClick="salir()" value="Salir del juego" id="Salir-dialog" class="btn btn-warning span8"></td>
+							</tr>
+						</table>
 					</div>
 				</dialog>
-
 				<div class="game-deck" >
 					<div id="main-center">
 						<div id="0" class="card card-1"></div>
