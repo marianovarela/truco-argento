@@ -261,9 +261,10 @@
 		document.getElementById("dialog").close();
 	}
 	
-	function terminarPartida(equipoUno, equipoDos, mensaje) {
+	function terminarPartida(equipoUno, equipoDos) {
 		determinarGanador(equipoUno, equipoDos);
-		setear("puntajes", mensaje);
+		setear("player-one-final-points", equipoUno.puntos);
+		setear("player-two-final-points", equipoDos.puntos);
 		iniciarDialog();
 		document.getElementById("dialog").showModal(); 
     }
@@ -1690,7 +1691,7 @@
 		if(!(this.equipoPrimero.puntos < limitePuntaje && this.equipoSegundo.puntos < limitePuntaje)) {
 			var puntajeFinal = 'PUNTAJE FINAL : ' + this.equipoPrimero.jugador.nombre + ' ' + this.equipoPrimero.puntos + ' - '+ this.equipoSegundo.jugador.nombre + ' ' + this.equipoSegundo.puntos;
 		    _log.innerHTML = '<hr />' + '<br />' + puntajeFinal  + _log.innerHTML ;
-			terminarPartida(this.equipoPrimero, this.equipoSegundo, puntajeFinal); 	
+			terminarPartida(this.equipoPrimero, this.equipoSegundo); 	
 		}
 	};
 	
