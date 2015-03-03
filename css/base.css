@@ -538,11 +538,11 @@ table {
 
 /*CSS*/
 html, body, .game-wrapper, .game-main {
-	height:100%;
-	overflow: hidden;
+    height:100%;
+    overflow: hidden;
 }
 h1, h2, h3, h4, h5, h6 {
-	font-family: Cubano;
+    font-family: Cubano;
 }
 .btn {
     text-transform: uppercase;
@@ -558,6 +558,12 @@ h1, h2, h3, h4, h5, h6 {
 .btn-success {
     background: #51ba12 !important;
 }
+.btn-warning {
+    background: #e7e51e !important;
+}
+.btn-danger {
+    background: #e5371d !important;
+}
 .btn.disabled, .btn[disabled] {
     opacity: 0.2 !important;
 }
@@ -568,7 +574,7 @@ h1, h2, h3, h4, h5, h6 {
     background-attachment: fixed;
     background-size: cover;
     background-color: #3C1E13;
-	color: #FFFFFF;
+    color: #FFFFFF;
 }
 .game-panel-divider {
     display:inline-block;
@@ -583,9 +589,9 @@ h1, h2, h3, h4, h5, h6 {
     background-color: #FFFFFF;
 }
 .game-panel {
-	display:inline-block;
-	width: 300px;
-	vertical-align:top;
+    display:inline-block;
+    width: 300px;
+    vertical-align:top;
     height: 100%;
     background-image: url("../images/panel-bg.jpg");
     background-position: center center;
@@ -595,11 +601,11 @@ h1, h2, h3, h4, h5, h6 {
     background-color: #594432;
 }
 .game-panel .box {
-	width:80%;
-	margin:.5em auto 0;
-	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
-	box-sizing: border-box;         /* Opera/IE 8+ */
+    width:80%;
+    margin:.5em auto 0;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
     border: 1px solid #999;
 }
 .box-title {
@@ -621,16 +627,6 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0 3%;
     overflow: hidden;
 }
-#configuraciones .box-content {
-    width: 12em;
-    height: 3em;
-    background: #555;
-    -webkit-transition: all  .1s linear;
-    -moz-transition: all .1s linear;
-    -ms-transition: all .1s linear;
-    -o-transition: all .1s linear;
-    transition: all .1s linear;
-}
 #configuraciones .box-content--hidden {
     width: 0;
     height: 0;
@@ -642,7 +638,7 @@ h1, h2, h3, h4, h5, h6 {
     animation:         inifintyRotate 2s infinite linear;
 }
 .label-cantos {
-	margin:.8em 0 .4em;
+    margin:.8em 0 .4em;
 }
 #configuraciones {
     position: fixed;
@@ -651,10 +647,10 @@ h1, h2, h3, h4, h5, h6 {
     width: 180px;
 }
 .game-main {
-	display: inline-block;
+    display: inline-block;
     width: 70%;
     min-width:450px;
-	vertical-align:top;
+    vertical-align:top;
 }
 ul li {
     display: inline-block!important;
@@ -663,40 +659,56 @@ ul li {
 ul li:nth-last-child(1) {
    margin-right: 0; 
 }
+.player-arrow.arrow-down {
+    position: absolute;
+    top: -12px;
+    left: 45%;
+    width: 99px;
+    height: 30px;
+    background-image: url("../images/flecha-abajo.png");
+}
+.player-arrow.arrow-up {
+    position: absolute;
+    bottom: -12px;
+    left: 45%;
+    width: 99px;
+    height: 30px;
+    background-image: url("../images/flecha-arriba.png");
+}
 #player-one {
-	position:absolute;
-	bottom:0;
+    position:absolute;
+    bottom:0;
 }
 .player {
-	width:100%;
+    width:100%;
     min-height: 180px;
 }
 .player-cards {
-	display: table;
+    display: table;
     padding: 0;
     text-align: left;
     margin: 0 auto;
 }
 .player-name {
-	font-size:1em;
-	margin:.5em 0;
+    font-size:1em;
+    margin:.5em 0;
 }
 .player-content {
-	position:relative;
+    position:relative;
     text-align: center;
 }
 .player-voice {
-	position:absolute;
-	background-color:transparent;
-	border:0 solid transparent;
-	width:70%;
-	margin-left:15%;
-	padding:.4em;
-	-webkit-transition: all  .5s linear;
-	-moz-transition: all .5s linear;
-	-ms-transition: all .5s linear;
-	-o-transition: all .5s linear;
-	transition: all .5s linear;
+    position:absolute;
+    background-color:transparent;
+    border:0 solid transparent;
+    width:70%;
+    margin-left:15%;
+    padding:.4em;
+    -webkit-transition: all  .5s linear;
+    -moz-transition: all .5s linear;
+    -ms-transition: all .5s linear;
+    -o-transition: all .5s linear;
+    transition: all .5s linear;
 }
 .naipe-animated {
     background: transparent;
@@ -709,31 +721,30 @@ ul li:nth-last-child(1) {
 }
 .naipe-remove {
     width:0!important;
-    /*margin:0!important;*/
     overflow: hidden;
 }
 .recien-cantado {
-	background-color: #C10000;
-	border:1px solid #EEE;
+    background-color: #C10000;
+    border:1px solid #EEE;
 }
 #player-one .player-voice {
-	top:-2.8em;
+    top:-2.8em;
 }
 #player-one .recien-cantado {
-	background-color: #00248C;
-	border:1px solid #EEE;
+    background-color: #00248C;
+    border:1px solid #EEE;
 }
 .naipe {
     background: url('../images/naipes-e.png') 0 0;
     width:98px;
     height:150px;
     display:block;
-	
-	-webkit-transition: -webkit-transform  1s linear;
-	-moz-transition: -moz-transform 1s linear;
-	-ms-transition: -ms-transform 1s linear;
-	-o-transition: -o-transform 1s linear;
-	transition: transform 1s linear;
+    
+    -webkit-transition: -webkit-transform  1s linear;
+    -moz-transition: -moz-transform 1s linear;
+    -ms-transition: -ms-transform 1s linear;
+    -o-transition: -o-transform 1s linear;
+    transition: transform 1s linear;
 }
 .naipe:focus,
 .naipe:active {
@@ -743,22 +754,22 @@ ul li:nth-last-child(1) {
     background: url('../images/naipes-e.png') 98px 0;
 }
 .naipe-jugado {
-	position:relative;
+    position:relative;
 }
 .game-header h2 {
-	text-align: center;
-	margin: 20px;
+    text-align: center;
+    margin: 20px;
 }
 #game-score {
     font-family: Cubano;
     font-size: 12px;
-	width: 80%;
-	margin: 10px auto;
+    width: 80%;
+    margin: 10px auto;
 }
 #game-score td,
 #game-score th {
-	text-align: center;
-	width: 325px;
+    text-align: center;
+    width: 325px;
 }
 #game-score td div {
     background-color: rgba(0, 0, 0, 0.4);
@@ -771,7 +782,7 @@ ul li:nth-last-child(1) {
     font-size: 16px;
 }
 #log, .log-title {
-	overflow-y:auto;
+    overflow-y:auto;
     margin-left: 10px;
 }
 #log {
@@ -779,49 +790,54 @@ ul li:nth-last-child(1) {
     font-size: 10px;
 }
 .green {
-	color:green;
+    color:green;
 }
 .amarillo {
-	color:yellow;
+    color:yellow;
 }
 #player-two .player-cards {
-	min-height:150px;
+    min-height:150px;
 }
 .game-deck {
-	height:180px; 
-	position:relative;
-	margin-left:10%;
+    height:180px; 
+    position:relative;
+    margin-left:10%;
 }
 .game-deck .card {
-	width:98px; 
-	height:150px;
-	position:absolute;
-	/*border:1px solid white;*/
+    width:98px; 
+    height:150px;
+    position:absolute;
+}
+#dialog {
+    background-color: #e5371d;
+    width: 600px;
+    height: 400px;
+    border: 4px solid #FFFFFF;
 }
 .card-1 {
-	top:30px;
-	left:0;
+    top:30px;
+    left:0;
 }
 .card-2 {
-	top:0;
-	left:30px;
+    top:0;
+    left:30px;
 }
 .card-3 {
-	top:30px;
-	left:150px;
+    top:30px;
+    left:150px;
 }
 .card-4 {
-	top:0;
-	left:180px;
+    top:0;
+    left:180px;
 }
 .card-5 {
-	top:30px;
-	left:300px;
-}	
+    top:30px;
+    left:300px;
+}   
 .card-6 {
-	top:0;
-	left:330px;
-}					
+    top:0;
+    left:330px;
+}                   
 @-webkit-keyframes inifintyRotate {
   0%   { -webkit-transform: rotate(0deg); }
   100% { -webkit-transform: rotate(360deg); }
