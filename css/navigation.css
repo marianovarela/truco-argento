@@ -23,7 +23,7 @@
 	height: 4em;
 }
 
-#Salir.hover, #Reiniciar-right.hover{
+#Salir.hover, #Reiniciar-right.hover, #Reiniciar-dialog.hover, #Salir-dialog.hover{
 	width: auto;
 	height: 4em;
 }
