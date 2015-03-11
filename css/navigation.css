@@ -7,3 +7,28 @@
 	position: absolute;
 	bottom: 90px;
 }
+
+#Envido.hover, #RealEnvido.hover, #FaltaEnvido.hover{
+	width: auto;
+	height: 4em;
+}
+
+#IrAlMazo.hover, #Truco.hover, #reTruco.hover, #vale4.hover{
+	width: auto;
+	height: 4em;
+}
+
+#Quiero.hover, #NoQuiero.hover, #Reiniciar-left.hover{
+	width: auto;
+	height: 4em;
+}
+
+#Salir.hover, #Reiniciar-right.hover{
+	width: auto;
+	height: 4em;
+}
+
+#opciones.hover{
+	width: auto;
+	height: 6em;
+}
