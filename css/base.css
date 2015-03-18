@@ -620,8 +620,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 .box--collapsable .box-title {
     cursor: pointer;
-    margin-right: 10px;
-    margin-bottom: 10px;
 }
 .box-content {
     padding: 3%;
@@ -680,14 +678,10 @@ ul li:nth-last-child(1) {
     width: 99px;
     height: 30px;
     background-image: url("../images/flecha-arriba.png");
-    margin-right: 10px;
-    margin-bottom: 10px;
 }
 #player-one {
     position:absolute;
     bottom:0;
-    margin-right: 10px;
-    margin-bottom: 10px;
 }
 .player {
     width:100%;
