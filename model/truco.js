@@ -228,15 +228,20 @@
 		iniciarBotones();
 	}
 	
+	function nuevaPartida(){
+		reiniciar();
+		_partidaActual.iniciar();
+	}
+	
 	function reiniciar(){
+		reiniciarTablero();
 		var _log = document.getElementById('log');
 		var _rondaActual = null;
 		var _partidaActual = null;
 		var audio = null;
-		var limitePuntaje = 30;
+		var limitePuntaje = 3;
 		var Debug = false;
 		setUp();
-	    // agregarNaipes();
 	}
 	
 	function agregarNaipes(){
@@ -250,7 +255,6 @@
 	}
 	
 	function reiniciarDesdeDialog(){
-		reiniciarTablero();
 		reiniciar();
 		document.getElementById("dialog").close();
 	}
@@ -1662,7 +1666,7 @@
 	//------------------------------------------------------------------
 	
 	Partida.prototype.continuar = function () {
-	    limitePuntaje = 30;
+	    limitePuntaje = 3;
 	    while (this.equipoPrimero.puntos < limitePuntaje && this.equipoSegundo.puntos < limitePuntaje) {
 			var _$tbl = $('#game-score');
 			_log.innerHTML =  "";
