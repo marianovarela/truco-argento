@@ -636,6 +636,8 @@ h1, h2, h3, h4, h5, h6 {
 #configuraciones .box-content--hidden {
     width: 0;
     height: 0;
+    margin-right: 10px;
+    margin-bottom: 10px;
 }
 #configuraciones .title-rotate {
     -webkit-animation: inifintyRotate 2s infinite linear; /* Safari 4+ */
@@ -654,7 +656,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .game-main {
     display: inline-block;
-    width: 70%;
+    width: 60%;
     min-width:450px;
     vertical-align:top;
 }
@@ -680,7 +682,6 @@ ul li:nth-last-child(1) {
     width: 99px;
     height: 30px;
     background-image: url("../images/flecha-arriba.png");
-    margin-right: 10px;
     margin-bottom: 10px;
 }
 #player-one {
