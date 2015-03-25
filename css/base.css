@@ -914,3 +914,6 @@ ul li:nth-last-child(1) {
   0%   { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+.width-100{
+	width: 100%;
+}

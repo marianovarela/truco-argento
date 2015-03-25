@@ -111,9 +111,8 @@ component.root
     )
     .add(extensible.create_vertical('main-right').set_priority(2)
     	.add(extensible.create_leaf('opciones').set_priority(0))
-    	.add(extensible.create_horizontal('menu').set_priority(1)
+    	.add(extensible.create_vertical('menu').set_priority(1)
     		.add(extensible.create_leaf('Reiniciar-right').set_priority(0))
-    		.add(extensible.create_leaf('Salir').set_priority(1))
     	)
     )
 );
