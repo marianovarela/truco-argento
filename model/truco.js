@@ -239,7 +239,7 @@
 		var _rondaActual = null;
 		var _partidaActual = null;
 		var audio = null;
-		var limitePuntaje = 3;
+		var limitePuntaje = 30;
 		var Debug = false;
 		setUp();
 	}
@@ -308,13 +308,6 @@
     	deshabilitar("Quiero");
     	deshabilitar("NoQuiero");
     }
-    
-    function clases(indice){
-    	var element = "naipe-" + indice;
-    	console.log(element); 
-    	var clase = document.getElementById(element).classList;
-    	console.log(clase);
-    }	
     
 	//Funciones Primitivas
 	function getRandomInt (min, max) {
@@ -519,11 +512,17 @@
 	//------------------------------------------------------------------
 	
 	Jugador.prototype.jugarCarta =  function (indice) {
+		console.log(this.cartasEnMano);
+		console.log(this.cartasJugadas);
 		var index = indice + this.cartasJugadas.length;
 		var carta = component.root.components[0].components[1].components[index];
 		carta.id_played = 'card-' + (this.cartasJugadas.length);
-		document.getElementById(this.cartasJugadas.length).setAttribute('id', carta.id_played);	
-			
+		document.getElementById(this.cartasJugadas.length).setAttribute('id', carta.id_played);
+		var id = (indice + this.cartasJugadas.length);
+		console.log(document.getElementById("naipe-" + id).classList);
+		document.getElementById("naipe-" + id).classList.remove("hover");
+		console.log(document.getElementById("naipe-" + id).classList);
+		
 		if(indice !== null && indice !== undefined && this.cartasEnMano.length > indice) {
 			var carta = this.cartasEnMano[indice];
 			_log.innerHTML = '<b>' + this.nombre + ' juega un :</b> ' + carta.getNombre() + '<br /> ' + _log.innerHTML ;
@@ -1666,7 +1665,7 @@
 	//------------------------------------------------------------------
 	
 	Partida.prototype.continuar = function () {
-	    limitePuntaje = 3;
+	    limitePuntaje = 30;
 	    while (this.equipoPrimero.puntos < limitePuntaje && this.equipoSegundo.puntos < limitePuntaje) {
 			var _$tbl = $('#game-score');
 			_log.innerHTML =  "";
