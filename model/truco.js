@@ -309,6 +309,75 @@
     	deshabilitar("NoQuiero");
     }
     
+    function getIndice(jugador, indice){
+    	console.log(jugador.indicesJugados);
+    	var size = jugador.indicesJugados.length;
+    	var index;
+    	switch (size) {
+			case 0:
+    			index = getPrimerIndice(jugador.indicesJugados, indice);
+				break;
+			case 1:
+    			index = getSegundoIndice(jugador.indicesJugados, indice);
+    			break;
+			case 2:
+    			index = getTercerIndice(jugador.indicesJugados, indice);
+				break;
+		}
+		return index;
+    }
+    
+    function getPrimerIndice(indices, indice){
+    	return indice;
+    }
+    
+    function getSegundoIndice(indices, indice){
+    	if(indice == 0){
+    		switch (indices[0]) {
+			case 0:
+				return 1;
+			case 1:
+				return 0;
+			case 2:
+				return 0;
+			}	
+    	}
+    	if(indice == 1){
+    		switch (indices[0]) {
+			case 0:
+				return 2;
+			case 1:
+				return 2;
+			case 2:
+				return 1;
+			}
+    	}
+    }
+    
+    function getTercerIndice(indices, indice){
+    	//cuando es la primer o segunda carta
+    	if(indices[0] == 0 && indices[1] == 1){
+    		return 2;
+    	}
+    	if(indices[1] == 0 && indices[0] == 1){
+    		return 2;
+    	}
+    	//cuando es la primer y tercer carta
+    	if(indices[0] == 0 && indices[1] == 2){
+    		return 1;
+    	}
+    	if(indices[1] == 0 && indices[0] == 2){
+    		return 1;
+    	}
+    	//cuando es la segunda y tercer carta
+    	if(indices[0] == 1 && indices[1] == 2){
+    		return 0;
+    	}
+    	if(indices[1] == 1 && indices[0] == 2){
+    		return 0;
+    	}
+    }
+    
 	//Funciones Primitivas
 	function getRandomInt (min, max) {
 		return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -428,6 +497,7 @@
 		this.cartas = new Array();
 		this.cartasEnMano = new Array();
 		this.cartasJugadas = new Array();
+		this.indicesJugados = new Array();
 		this.esHumano = true;
 		this.nombre = '';
         this.puntosGanadosEnvido = 0;
@@ -512,16 +582,14 @@
 	//------------------------------------------------------------------
 	
 	Jugador.prototype.jugarCarta =  function (indice) {
-		console.log(this.cartasEnMano);
-		console.log(this.cartasJugadas);
 		var index = indice + this.cartasJugadas.length;
 		var carta = component.root.components[0].components[1].components[index];
 		carta.id_played = 'card-' + (this.cartasJugadas.length);
 		document.getElementById(this.cartasJugadas.length).setAttribute('id', carta.id_played);
-		var id = (indice + this.cartasJugadas.length);
-		console.log(document.getElementById("naipe-" + id).classList);
+		
+		var id = getIndice(this, indice);
 		document.getElementById("naipe-" + id).classList.remove("hover");
-		console.log(document.getElementById("naipe-" + id).classList);
+		this.indicesJugados.push(id);
 		
 		if(indice !== null && indice !== undefined && this.cartasEnMano.length > indice) {
 			var carta = this.cartasEnMano[indice];
@@ -1435,9 +1503,11 @@
 		j1.cartas = new Array();
 		j1.cartasEnMano = new Array();
 		j1.cartasJugadas = new Array();
+		j1.indicesJugados = new Array();
 		j2.cartas = new Array();
 		j2.cartasEnMano = new Array();
 		j2.cartasJugadas = new Array();
+		j2.indicesJugados = new Array();
 		
 		var maso = this.generarBaraja();
 		for (var i = 1; i <= 6; i++) {
