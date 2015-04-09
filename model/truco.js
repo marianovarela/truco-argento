@@ -32,28 +32,42 @@
 	  listeners = [];
 	  keycodes = [
 	    {
-	      key: 'left',
-	      code: [37, 52]
+     	  key: 'left',
+	      code: 52
 	    }, {
-	      key: 'up',
-	      code: [38, 50]
+	      key: 'left',
+	      code: 37
 	    }, {
 	      key: 'right',
-	      code: [39, 54]
+	      code: 54
+	    }, {
+	      key: 'right',
+	      code: 39
+	    }, {
+	      key: 'up',
+	      code: 50
+	    }, {
+	      key: 'up',
+	      code: 38
 	    }, {
 	      key: 'down',
-	      code: [40, 56]
+	      code: 56
+	    }, {
+	      key: 'down',
+	      code: 40
 	    }, {
 	      key: 'enter',
-	      code: [13, 53]
+	      code: 53
+	    }, {
+	      key: 'enter',
+	      code: 13
 	    }
 	  ];
 	  get_keycode = function(code) {
 	    var keycode, _i, _len;
 	    for (_i = 0, _len = keycodes.length; _i < _len; _i++) {
 	      keycode = keycodes[_i];
-	      if(contains(keycode.code, code)){
-	      	console.log(keycode);	
+	      if (keycode.code === code) {
 	        return keycode;
 	      }
 	    }
@@ -90,18 +104,6 @@
 	
 	  })();
 	})(this);
-
-	function contains(array, element){
-		var a, _i, _len;
-		for (_i = 0, _len = array.length; _i < _len; _i++) {
-		  a = array[_i];
-		  if (a === element) {
-		    return true;
-		  } else {
-		    return false;
-		  }
-		}
-	}	
 
 	function iniciarDialog(){
 		$(function(){component.main_left.set_not_active();});
