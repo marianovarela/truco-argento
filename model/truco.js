@@ -33,26 +33,27 @@
 	  keycodes = [
 	    {
 	      key: 'left',
-	      code: 37
+	      code: [37, 52]
 	    }, {
 	      key: 'up',
-	      code: 38
+	      code: [38, 50]
 	    }, {
 	      key: 'right',
-	      code: 39
+	      code: [39, 54]
 	    }, {
 	      key: 'down',
-	      code: 40
+	      code: [40, 56]
 	    }, {
 	      key: 'enter',
-	      code: 13
+	      code: [13, 53]
 	    }
 	  ];
 	  get_keycode = function(code) {
 	    var keycode, _i, _len;
 	    for (_i = 0, _len = keycodes.length; _i < _len; _i++) {
 	      keycode = keycodes[_i];
-	      if (keycode.code === code) {
+	      if(contains(keycode.code, code)){
+	      	console.log(keycode);	
 	        return keycode;
 	      }
 	    }
@@ -89,6 +90,18 @@
 	
 	  })();
 	})(this);
+
+	function contains(array, element){
+		var a, _i, _len;
+		for (_i = 0, _len = array.length; _i < _len; _i++) {
+		  a = array[_i];
+		  if (a === element) {
+		    return true;
+		  } else {
+		    return false;
+		  }
+		}
+	}	
 
 	function iniciarDialog(){
 		$(function(){component.main_left.set_not_active();});
