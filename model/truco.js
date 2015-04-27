@@ -259,6 +259,7 @@
 		var _ganador = null;
 		var cartaActual = 0;
 		setUp();
+		iniciarNaipesJugados();
 	}
 	
 	function agregarNaipes(){
