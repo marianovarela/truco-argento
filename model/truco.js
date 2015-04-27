@@ -256,6 +256,8 @@
 		var audio = null;
 		var limitePuntaje = 30;
 		var Debug = false;
+		var _ganador = null;
+		var cartaActual = 0;
 		setUp();
 	}
 	

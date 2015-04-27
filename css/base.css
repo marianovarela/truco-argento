@@ -701,7 +701,7 @@ ul li:nth-last-child(1) {
     margin: 0 auto;
 }
 .player-name {
-    font-size:1em;
+    font-size:25px;
     margin:.5em 0;
 }
 .player-content {
@@ -773,7 +773,7 @@ ul li:nth-last-child(1) {
 }
 #game-score {
     font-family: Cubano;
-    font-size: 12px;
+    font-size: 20px;
     width: 80%;
     margin: 10px auto;
 }
