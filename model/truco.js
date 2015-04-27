@@ -16,7 +16,7 @@
 	component.root.handle_inner = function(key) {
 	  console.log('handling ' + key);
 	  var audio = new Audio('audio/fail.mp3');
-	  audio.play();
+	  audio.play(); 
 	};
 	
 	component.root.set_active_down_to_up = function(child_component, changed_child) {
@@ -32,37 +32,53 @@
 	  listeners = [];
 	  keycodes = [
 	    {
-     	  key: 'left',
-	      code: 52
-	    }, {
 	      key: 'left',
 	      code: 37
-	    }, {
-	      key: 'right',
-	      code: 54
 	    }, {
 	      key: 'right',
 	      code: 39
 	    }, {
 	      key: 'up',
-	      code: 50
-	    }, {
-	      key: 'up',
 	      code: 38
-	    }, {
-	      key: 'down',
-	      code: 56
 	    }, {
 	      key: 'down',
 	      code: 40
 	    }, {
 	      key: 'enter',
+	      code: 13
+	    }, {
+	      key: 'number_0',
+	      code: 48
+	    }, {
+	      key: 'number_1',
+	      code: 49
+	    }, {
+	      key: 'number_2',
+	      code: 50
+	    }, {
+	      key: 'number_3',
+	      code: 51
+	    }, {
+	      key: 'number_4',
+	      code: 52
+	    }, {
+	      key: 'number_5',
 	      code: 53
 	    }, {
-	      key: 'enter',
-	      code: 13
+	      key: 'number_6',
+	      code: 54
+	    }, {
+	      key: 'number_7',
+	      code: 55
+	    }, {
+	      key: 'number_8',
+	      code: 56
+	    }, {
+	      key: 'number_9',
+	      code: 57
 	    }
 	  ];
+	  
 	  get_keycode = function(code) {
 	    var keycode, _i, _len;
 	    for (_i = 0, _len = keycodes.length; _i < _len; _i++) {

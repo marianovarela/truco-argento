@@ -235,11 +235,58 @@ var extensible = function($rootScope) {
 					$('#' + this.identifier).removeClass('hover');
 					return this.active = false;
 				},
+				eject : function(id){
+					if($('#' + id).get(0).disabled){
+						return false;			
+					}
+					$('#' + id).get(0).click();
+					return true;
+				},
 				handle : function(key) {
 					if (key === 'enter') {
 						console.log('handling enter ' + this.identifier);
 						$('#' + this.identifier).get(0).click();
 						return true;
+					}
+					if (key === 'number_0') {
+						$('#Reiniciar-left').get(0).click();
+						return true;
+					}
+					if (key === 'number_1') {
+						var id = 'Envido';
+						return this.eject(id);
+					}
+					if (key === 'number_2') {
+						var id = 'RealEnvido';
+						return this.eject(id);
+					}
+					if (key === 'number_3') {
+						var id = 'FaltaEnvido';
+						return this.eject(id);
+					}
+					if (key === 'number_4') {
+						var id = 'IrAlMazo';
+						return this.eject(id);
+					}
+					if (key === 'number_5') {
+						var id = 'Truco';
+						return this.eject(id);
+					}
+					if (key === 'number_6') {
+						var id = 'reTruco';
+						return this.eject(id);
+					}
+					if (key === 'number_7') {
+						var id = 'vale4';
+						return this.eject(id);
+					}
+					if (key === 'number_8') {
+						var id = 'Quiero';
+						return this.eject(id);
+					}
+					if (key === 'number_9') {
+						var id = 'NoQuiero';
+						return this.eject(id);
 					}
 					return false;
 				},
