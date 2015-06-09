@@ -416,6 +416,10 @@
     	}
     }
     
+    function seTermino(ronda){
+    	return (ronda.equipoPrimero.puntos >= limitePuntaje || ronda.equipoSegundo.puntos >= limitePuntaje);
+    }
+    
 	//Funciones Primitivas
 	function getRandomInt (min, max) {
 		return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -1405,7 +1409,9 @@
 			ganador.puntos += puntos.perdedor;
             ganador.jugador.puntosGanadosEnvido = puntos.perdedor;
 		}
-		
+		if(seTermino(_rondaActual)){
+			terminarPartida(_rondaActual.equipoPrimero, _rondaActual.equipoSegundo);
+		}
 		this.puedeEnvido = false;
 		this.equipoEnvido = null;
         //this.cantos = [];
